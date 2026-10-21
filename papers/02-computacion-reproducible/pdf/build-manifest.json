@@ -1,14 +1,14 @@
 {
   "paper": "02-computacion-reproducible",
-  "source_commit": "0e34308e5299f6a126edad8095a0edb20f2488f9",
+  "source_commit": "dd33c92ca038bf919f05bdb658107ebcee1a40b5",
   "source_date": "2026-10-21",
-  "source_epoch": 1792622686,
-  "source_dirty": true,
-  "build_commit": "0e34308e5299f6a126edad8095a0edb20f2488f9",
+  "source_epoch": 1792625466,
+  "source_dirty": false,
+  "build_commit": "dd33c92ca038bf919f05bdb658107ebcee1a40b5",
   "build_date": "2026-10-21",
-  "build_epoch": 1792622686,
-  "build_dirty": true,
-  "pdf_sha256": "ed6e6d131409e3131c38ebbeced06009642ecd5c119e13c42aafb436371d5784",
+  "build_epoch": 1792625466,
+  "build_dirty": false,
+  "pdf_sha256": "b214080e45c359ccb7ba4c8832aa9291c6a6f9bcd68c1b217b0bc8778cf0bf22",
   "inputs": {
     ".devcontainer/Dockerfile": "8eb35c8f50a8858a836a13aa798565e82bf764a285ce03d387b30510671d61d0",
     ".devcontainer/devcontainer.json": "bb12a7945d4687f34033fd1cd803429b464e1fbb78bba682412543c2f694b272",
@@ -43,7 +43,7 @@
     "scripts/summarize_usage.py": "179a2e65a665eb7fbd4493737e08bbcc652ce40e74f7b13320dfea6e4eb19801",
     "shared/preamble.tex": "3216542443983639d03f8e23c4a7a6841013b5f0e35cc315eb60d66261fb28e7"
   },
-  "engine": "XeTeX 3.141592653-2.6-0.999995 (TeX Live 2023/Debian)",
+  "engine": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)",
   "configured_image": "ghcr.io/xu-cheng/texlive-debian@sha256:78ac2204b8df113aca0561e8f173ad5b89ee51e90795173d2fe9bcf0fbce162e",
-  "runtime": "local-unpinned"
+  "runtime": "ghcr.io/xu-cheng/texlive-debian@sha256:78ac2204b8df113aca0561e8f173ad5b89ee51e90795173d2fe9bcf0fbce162e"
 }
