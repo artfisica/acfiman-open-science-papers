@@ -5,7 +5,7 @@ Guía consultada 2026-10-21: https://acfiman.org/boletines/
 
 Formato implementado: carta, una columna, clase article, títulos/resúmenes/palabras clave bilingües, resúmenes <=150 palabras, secciones numeradas y bibliografía numérica por orden de cita. XeLaTeX permite español Unicode. Figuras vectoriales PDF separadas a 160 mm. Las tablas no tienen líneas internas ni sombreado. `make export` integra referencias y secciones en un único main.tex por artículo.
 
-Afiliaciones indicadas por Arturo el 21 de octubre de 2026: Oscar, Creative Commons Venezuela; Arturo, Creative Commons Venezuela y Creative Commons Switzerland.
+Afiliaciones indicadas por Arturo el 21 de octubre de 2026: Oscar Altuve Pabon, Iskya García, Ariana Moreno, Estefanía Sánchez Pineda y Diego Salcedo Flores: Creative Commons Venezuela. Arturo Sánchez Pineda: Creative Commons Venezuela y Creative Commons Switzerland.
 
 Pendientes: direcciones postales institucionales autorizadas; correo de correspondencia; confirmación de autoría y orden (incluida la grafía de Oscar); contribuciones, financiación y conflictos; revisión completa de datos y referencias. El nombre y fecha de borrador no significan aceptación por ACFIMAN. Los resúmenes ICHEP fueron aceptados como charlas; los autores informan que se retiraron por imposibilidad de asistir. Esto no equivale a arbitraje de los manuscritos completos.
 
@@ -22,3 +22,21 @@ El artículo de Salud para todos de 2026 y los trabajos CHEP/estrategia ya publi
 
 ## Licencias
 No se impone una licencia nueva a los manuscritos ni a materiales de coautores. Para publicación abierta, acordar una licencia para textos y otra apropiada para código. La licencia CC0 de recursos CoAfina no se hereda automáticamente aquí. Ver RIGHTS.md.
+
+## Equipo autor del manuscrito comunitario
+
+Por indicación de Arturo, se incorporan cuatro coautores al manuscrito 01. Se
+conservan Oscar y Arturo en las dos primeras posiciones; los nombres añadidos
+siguen el orden facilitado por Arturo. El manuscrito 02 mantiene su autoría.
+Los resúmenes aceptados y sus referencias conservan su autoría histórica.
+
+1. Oscar Altuve Pabon — Creative Commons Venezuela.
+2. Arturo Sánchez Pineda — Creative Commons Venezuela; Creative Commons Switzerland.
+3. [Iskya García](https://www.linkedin.com/in/iskya-garc%C3%ADa-09454711b/) — Creative Commons Venezuela.
+4. [Ariana Moreno](https://www.linkedin.com/in/ariana-moreno-9b3017219/) — Creative Commons Venezuela.
+5. [Estefanía Sánchez Pineda](https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/) — Creative Commons Venezuela.
+6. [Diego Salcedo Flores](https://www.linkedin.com/in/diego-salcedo-flores/) — Creative Commons Venezuela.
+
+Grafías cotejadas con las capturas de perfiles facilitadas por Arturo. Las
+afiliaciones siguen su indicación para este manuscrito. Las contribuciones
+específicas al artículo se completarán con el equipo durante la revisión.

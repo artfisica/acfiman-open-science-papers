@@ -1,6 +1,6 @@
 'use strict';
 const papers = {
-  comunidades: {label: '01', title: 'Hackatones y prácticas abiertas para construir comunidades científicas en América Latina', authors: 'Oscar Altuve Pabon y Arturo Sánchez Pineda', directory: '01-comunidades-abiertas'},
+  comunidades: {label: '01', title: 'Hackatones y prácticas abiertas para construir comunidades científicas en América Latina', authors: 'Oscar Altuve Pabon, Arturo Sánchez Pineda, Iskya García, Ariana Moreno, Estefanía Sánchez Pineda y Diego Salcedo Flores', directory: '01-comunidades-abiertas'},
   computacion: {label: '02', title: 'Entornos reproducibles y automatización para la formación en física: una experiencia de computación transversal en América Latina', authors: 'Arturo Sánchez Pineda', directory: '02-computacion-reproducible'}
 };
 function selectPaper() {
