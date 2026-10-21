@@ -1,5 +1,5 @@
 """Draft checks always run; STRICT=1 additionally enforces submission readiness."""
-import csv, os, re, sys
+import csv, json, os, re, sys
 from common import ROOT, metadata, generate, expand, runtime_image
 strict='--strict' in sys.argv or os.environ.get('STRICT')=='1'
 errors=[]
@@ -27,8 +27,15 @@ for item in meta['papers']:
         urls=re.findall(r'\\url\{([^}]+)\}',entry)
         for url in urls:
             if url.startswith(('https://laconga.redclara.net/','http://laconga.redclara.net/')):
-                if not any(re.fullmatch(r'https://web\.archive\.org/web/\d{14}/'+re.escape(url), twin) for twin in urls):
-                    message=f'{p.name}: missing dated archive twin for {url}'
+                archive=any(re.fullmatch(r'https://web\.archive\.org/web/\d{14}/'+re.escape(url), twin) for twin in urls)
+                preservation=p/'data/source-preservation.json'
+                reports=json.loads(preservation.read_text()).get('reports',{}) if preservation.exists() else {}
+                record=reports.get(url,{})
+                dated=(record.get('kind')=='dated_event_report' and re.fullmatch(r'\d{4}-\d{2}-\d{2}',record.get('publication_date',''))
+                       and record.get('coverage') and record.get('corroborating_url') in full
+                       and url.rstrip('/')!='https://laconga.redclara.net/hackathon')
+                if not archive and not dated:
+                    message=f'{p.name}: mutable or unreviewed source needs dated archive: {url}'
                     if strict: errors.append(message)
                     else: print('  Archive warning:',message)
     pending=[r['id'] for r in rows if r['status']!='verified']

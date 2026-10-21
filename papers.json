@@ -21,42 +21,66 @@
           "name": "Oscar Altuve Pabon",
           "affiliations": [
             "cc-ve"
-          ]
+          ],
+          "manuscript_approval": {
+            "status": "pending",
+            "approved_source_commit": null
+          }
         },
         {
           "name": "Arturo Sánchez Pineda",
           "affiliations": [
             "cc-ve",
             "cc-ch"
-          ]
+          ],
+          "manuscript_approval": {
+            "status": "pending",
+            "approved_source_commit": null
+          }
         },
         {
           "name": "Iskya García",
           "affiliations": [
             "cc-ve"
           ],
-          "profile": "https://www.linkedin.com/in/iskya-garc%C3%ADa-09454711b/"
+          "profile": "https://www.linkedin.com/in/iskya-garc%C3%ADa-09454711b/",
+          "manuscript_approval": {
+            "status": "pending",
+            "approved_source_commit": null
+          }
         },
         {
           "name": "Ariana Moreno",
           "affiliations": [
             "cc-ve"
           ],
-          "profile": "https://www.linkedin.com/in/ariana-moreno-9b3017219/"
+          "profile": "https://www.linkedin.com/in/ariana-moreno-9b3017219/",
+          "manuscript_approval": {
+            "status": "pending",
+            "approved_source_commit": null
+          }
         },
         {
           "name": "Estefanía Sánchez Pineda",
           "affiliations": [
             "cc-ve"
           ],
-          "profile": "https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/"
+          "profile": "https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/",
+          "manuscript_approval": {
+            "status": "pending",
+            "approved_source_commit": null
+          }
         },
         {
           "name": "Diego Salcedo Flores",
           "affiliations": [
             "cc-ve"
           ],
-          "profile": "https://www.linkedin.com/in/diego-salcedo-flores/"
+          "profile": "https://www.linkedin.com/in/diego-salcedo-flores/",
+          "manuscript_approval": {
+            "status": "pending",
+            "approved_source_commit": null
+          }
         }
       ],
       "status": "draft",
@@ -77,7 +101,11 @@
           "affiliations": [
             "cc-ve",
             "cc-ch"
-          ]
+          ],
+          "manuscript_approval": {
+            "status": "pending",
+            "approved_source_commit": null
+          }
         }
       ],
       "status": "draft",

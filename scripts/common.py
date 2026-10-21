@@ -12,7 +12,6 @@ def inputs(p):
     files += list((ROOT/'.devcontainer').glob('*'))
     files += list((ROOT/'.github/workflows').glob('*.yml'))
     files += [f for f in p.rglob('*.tex') if 'build' not in f.relative_to(p).parts]
-    if (p/'data/coafina-editions.csv').exists(): files.append(p/'data/coafina-editions.csv')
     # evidence.csv is editorial bookkeeping, not a typeset input.
     return sorted(set(files) | set(source_inputs(p)))
 def sha(path):
@@ -62,6 +61,23 @@ def generate(item):
        r'\par\vspace{0.4em}{\small '+r'\\'.join(affiliations)+r'}\par\small Correspondencia: '+contact+
        r'\end{center}}'+'\n')
     (b/'metadata.tex').write_text(s)
+    editions=p/'data/coafina-editions-public.csv'
+    if editions.exists():
+        rows=list(csv.DictReader(editions.open()))
+        table=r'\begin{tabularx}{160mm}{@{}l*{5}{>{\raggedright\arraybackslash}X}@{}}\toprule'+'\n'
+        table+=r'Año & Registro & Actividad & Productos & Retos & Universidades \\'+'\n'
+        for row in rows:
+            if row['status']=='programado': continue
+            activity=row['participated']+(' al final' if row['edition']=='2022' else '')
+            university=row['registered_universities']+' (registro)' if row['edition']=='2022' else row['universities_event']
+            table+=' & '.join(tex(v) for v in [row['edition'],row['registered'],activity,row['solutions_or_teams'],row['challenges'],university])+r' \\'+'\n'
+        (b/'ediciones-body.tex').write_text(table+r'\bottomrule\end{tabularx}'+'\n')
+        rows=list(csv.DictReader((p/'data/participation-flows.csv').open()))
+        table=r'\begin{tabularx}{160mm}{@{}p{32mm}p{16mm}p{15mm}Xp{22mm}@{}}\toprule'+'\n'
+        table+=r'Evento & Inscritos & Recuento & Umbral reportado & Cociente \\'+'\n'
+        for row in rows:
+            table+=' & '.join(tex(row[k]) for k in ['event','registered','observed','definition','ratio'])+r' \\'+'\n'
+        (b/'participacion-body.tex').write_text(table+r'\bottomrule\end{tabularx}'+'\n')
     return info
 
 def expand(path, paper=None, stack=()):

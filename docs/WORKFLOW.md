@@ -23,4 +23,15 @@ Los commits de PDF se mantienen. Para un hito revisado puede añadirse un tag y 
 
 Codespaces construye una capa mínima sobre la misma imagen TeX fijada por digest que CI; añade el usuario no privilegiado `vscode`. No instala ni actualiza paquetes TeX. La validación estática verifica el digest común; la reconstrucción del contenedor debe comprobarse en Codespaces.
 
-Los pendientes explícitos del texto usan `\editorialtodo{...}`. Expresiones legítimas como «pendiente de evaluación» no bloquean el envío. Cada URL de LA-CoNGA citada requiere en la misma entrada bibliográfica un enlace Wayback con fecha de captura completa; el modo borrador avisa y el modo estricto bloquea si falta. Este control sintáctico no sustituye la revisión del contenido archivado.
+Los pendientes explícitos del texto usan `\editorialtodo{...}`. Expresiones legítimas como «pendiente de evaluación» no bloquean el envío. Una portada mutable de LA-CoNGA requiere un archivo fechado. Los informes de evento con URL propia pueden documentarse en `source-preservation.json`, con fecha, fuente corroborante citada y límites de cobertura. El control admite esta revisión explícita o una URL Wayback; avisa en borrador y bloquea en modo estricto cuando no existe ninguna. No garantiza disponibilidad futura ni confunde corroboración con una copia idéntica.
+
+Los cuadros de ediciones y cocientes se generan desde los CSV públicos documentados. Los números aproximados y los denominadores abiertos se conservan; no se rellenan valores ausentes ni se calculan promedios entre métricas distintas.
+
+Identidad de los próximos commits personales (configuración local, no global):
+
+```bash
+git config --local user.name "Arturo Sánchez Pineda"
+git config --local user.email "me@arturos.ch"
+```
+
+No reescribimos la historia publicada. Los commits automáticos mantienen la identidad del bot.

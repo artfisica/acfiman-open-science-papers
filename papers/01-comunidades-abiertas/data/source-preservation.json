@@ -1,0 +1,17 @@
+{
+  "reviewed_on": "2026-10-22",
+  "reports": {
+    "https://laconga.redclara.net/cambio-climatico-y-discurso-en-twitter-soluciones-ganadoras-del-hackathon-latinoamericano-coafina2022/": {
+      "publication_date": "2022-05-16",
+      "kind": "dated_event_report",
+      "corroborating_url": "https://www.codeforsociety.org/eventfund/updates/behind-the-scenes-what-it-took-to-run-la-conga-physics-hackathon-datos-abiertos-en-am%C3%A9rica-latina",
+      "coverage": "CS&S confirma calendario, siete retos y proporción aproximada; cien y doce soluciones proceden del informe LA-CoNGA. Países de registro discrepan."
+    },
+    "https://laconga.redclara.net/en/latin-american-students-develop-innovative-solutions-with-open-data-at-co-afina-2023/": {
+      "publication_date": "2023-11-30",
+      "kind": "dated_event_report",
+      "corroborating_url": "https://www.software.ac.uk/blog/hackathon-co-afina-2023-latin-american-students-drive-innovation-open-data",
+      "coverage": "SSI confirma totales de participantes/equipos. El cambio de rol de Ricardo Quispe solo se documenta en LA-CoNGA."
+    }
+  }
+}

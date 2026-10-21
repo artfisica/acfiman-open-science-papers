@@ -1,0 +1,36 @@
+{
+  "review_date": "2026-10-22",
+  "meaning": "Revisiones documentales inspeccionadas; no prueba del checkout de cada estudiante.",
+  "repositories": [
+    {
+      "repository": "laa-hecap/jupyter-on-codespaces",
+      "sha": "05f22ca46a5bb6b6b03ac3bd188f758c7a75be75",
+      "date": "2024-11-08",
+      "image": "mcr.microsoft.com/devcontainers/universal:2",
+      "used_by_students_confirmed": false
+    },
+    {
+      "repository": "laa-hecap/exercises-silafae",
+      "sha": "1b48cc9af863811a0c47230d59a207a221c761e2",
+      "date": "2024-11-08",
+      "image": "mcr.microsoft.com/devcontainers/universal:2",
+      "ollama": "llama3 already present in this revision",
+      "used_by_students_confirmed": false
+    },
+    {
+      "repository": "artfisica/csc2026",
+      "sha": "9c0761b7cfe8cefa566feb570467d27b8aaf9850",
+      "date": "2026-01-11",
+      "image": "rootproject/root:latest",
+      "linked_from": "https://indico.cern.ch/event/1551289/timetable/?view=standard",
+      "used_by_students_confirmed": false
+    },
+    {
+      "repository": "artfisica/csc2026",
+      "sha": "6ecfbd137700e34964b39bd983cdcd99be82f227",
+      "date": "2026-01-12",
+      "meaning": "Correction of intentional exercise bug; not an infrastructure incident",
+      "used_by_students_confirmed": false
+    }
+  ]
+}

@@ -7,10 +7,10 @@ Destino previsto: Boletín de la Academia de Ciencias Físicas, Matemáticas y N
 - [ ] Confirmar con la revista compatibilidad del preprint público y modalidad de ensayo; registrar la respuesta y actualizar `editorial_policy_confirmed` en `papers.json`.
 - [ ] Completar direcciones postales institucionales y correo de correspondencia en `papers.json`.
 - [ ] Completar financiación y declaraciones de intereses de cada manuscrito; revisar el vínculo profesional con INAIT y los apoyos históricos descritos. Cambiar `declarations_reviewed` solo tras concluir la revisión.
-- [ ] Resolver el registro histórico de CoAfina 2025, o retirar esa afirmación y la referencia del ensayo. Conservar las celdas ND donde no existan datos comparables.
-- [ ] Cotejar con los organizadores la cronología del seguimiento de Salud para todos. El ensayo distingue explícitamente ALAN 2022 y anuncio Cornell 2023; no asigna las métricas de uno al otro.
+- [ ] Completar los resultados finales de CoAfina 2025 si se dispone de registros; su convocatoria ya tiene fuente fechada. No sustituir ND por cifras de un resumen sin denominador.
+- [ ] Cotejar con los organizadores la cronología del seguimiento de Salud para todos. Conservamos las métricas publicadas sin asignarlas automáticamente al V2 anunciado por Cornell.
 - [ ] Revisar todos los textos, citas, cuadros, figuras y derechos de terceros. La revisión visual y científica sigue siendo responsabilidad de los autores.
-- [ ] Completar contribuciones de autoría según la información del equipo; no inferir funciones a partir de afiliaciones.
+- [ ] Completar contribuciones de autoría según la información del equipo; registrar la aprobación de la versión final y su commit en `manuscript_approval`. No inferir funciones a partir de afiliaciones.
 - [ ] Cambiar `status` a `ready` por manuscrito y retirar las frases editoriales pendientes del texto.
 - [ ] Ejecutar `make check STRICT=1` y `make export`; inspeccionar el paquete antes de enviarlo.
 

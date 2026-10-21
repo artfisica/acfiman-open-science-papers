@@ -1,36 +1,29 @@
-# Información que todavía requiere a los autores
+# Pendientes de los autores
 
-## CoAfina 2022–2025
+## Registros y unidades
 
-Facilitar un agregado por edición desde los formularios de la organización: inscritos únicos, activos según acción definida, entregas evaluadas/personas que finalizan, países, universidades, fechas y denominador. Registrar cómo se deduplicó y qué campos permiten clasificar actividad. Una inscripción no prueba participación ni finalización. El asistente no accedió a estos formularios. No se han rellenado las celdas ND con estimaciones.
+Recuperamos resultados públicos de CoAfina 2022–2024 en `coafina-editions-public.csv`. Conservamos los países de registro de 2022 como 9 según CS&S y 10 según LA-CoNGA; siete corresponde a participantes. Para 2023 distinguimos >100 registros pre-evento de 78 participantes reportados después. La cota <78% depende de que ambas fuentes describan la misma cohorte. No sumamos 12 soluciones y 16 equipos, ni equiparamos sus recuentos con retos. La cifra acumulada aproximada de veinte retos tampoco sustituye los conteos por edición.
 
-Para 2026, aprobar antes de la convocatoria las definiciones de activo/finalización, registrar versión de formulario, responsable y fechas de seguimiento a tres y seis meses. No se afirma que este protocolo ya esté implantado.
+Nos falta extraer los agregados finales de 2025 y precisar las definiciones usadas en cada formulario. Publicaremos conteos por edición, acción mínima, denominador, entregas y procedencia, sin registros personales. El registro parcial de >30 venezolanos en octubre de 2025 no equivale a asistencia ni al total de inscritos. La apertura anuncia 183 participantes, más de 60 universidades y ocho países, sin informar cuántos finalizaron. Para 2026 acordaremos las definiciones antes del evento, con responsables y seguimiento a tres y seis meses. No afirmamos que ese protocolo ya esté implantado.
 
 ## Salud para todos
 
-Pregunta preparada, NO enviada: «¿El seguimiento citado como 2022 en ALAN y Editathon V2 anunciado por Cornell para el 13–16 de febrero de 2023 son la misma actividad? ¿Qué registro confirma la fecha efectiva?»
+Confirmaremos con Anna Bennett y Saurabh Mehta si las cifras de seguimiento de ALAN (49 registros, 13 editores, 22 artículos, 43 referencias) corresponden a V2 de febrero de 2023 o a otra actividad. La consulta está preparada, no enviada; no hemos solicitado un erratum. Mantendremos separados los datos publicados y la fecha hasta recibir confirmación. Si procede corregir ALAN, acordaremos el texto con los coautores y la revista.
 
-El párrafo de discrepancia se retiró del manuscrito; el caso se limita a los resultados de 2021. Esto no resuelve ni corrige retrospectivamente las fuentes.
+Revisaremos también la denominación de editor activo: ALAN usa al menos una edición durante el evento; la fuente WMF citada define cinco por mes. El nuevo ensayo usa expresamente la definición operativa del evento. La Tabla 1 de ALAN informa 64 artículos/elementos y su Tabla 2 reproduce 99 artículos editados: necesitamos documentar ventanas, plataformas y deduplicación antes de conciliarlos. El dashboard no respondió en la comprobación del 22 de octubre (HTTP 503); no lo damos por revalidado. El informe OMS 2021 sí conserva un panel de 19 editores y 99 artículos editados. Revisaremos además 28/45 (62,2%) frente al 63,1% del perfil sanitario de ALAN; ese porcentaje no se reutiliza en el ensayo.
 
-## Relato cualitativo de SILAFAE XV y CSC Santiago
+La referencia a Colombia tiene respaldo en el informe oficial OMS de 2021, p.15; no la tratamos como un error demostrado. Podemos precisar con el equipo los nombres y funciones para dar el crédito adecuado. La ficha pública de Wikimedia registra el Rapid Grant como financiado, con presupuesto USD 700; distinguimos aprobación y ejecución contable.
 
-Por cada encuentro, Arturo debe aportar: repositorio y commit efectivamente utilizados; estado de prebuilds; enlace al número institucional de matriculados (separado de asistentes a su sesión); bloque horario asignado a preparación; problemas que recuerda; respuesta aplicada y cambios entre ambas escuelas. Identificar fecha del recuerdo y documentos disponibles. La duración prevista no mide tiempo real de incorporación. La ausencia de registros no invalida un relato cualitativo atribuido al instructor, pero el asistente no puede inventarlo.
+## Experiencia docente
 
-Estructura para completar en prosa: «En [fecha], impartí [actividad] con [repositorio@commit]. [Configuración] se eligió por [motivo]. Durante la sesión observé [problema concreto] y cambié [acción]. Para Santiago modifiqué [decisión] a partir de esa experiencia. Esta descripción es una observación retrospectiva del instructor, registrada el [fecha], sin medición sistemática de tiempos». No insertar corchetes vacíos en el manuscrito.
+Ya disponemos de horarios y responsables del CSC y de revisiones fechadas de los materiales. Identificaremos qué revisión se compartió realmente con cada grupo y si hubo prebuilds. Añadiremos observaciones propias fechadas: qué ocurrió, qué respuesta aplicamos y qué cambiamos entre SILAFAE y Santiago. No transformaremos un recuerdo en un cronometraje ni una corrección de un ejercicio intencionalmente defectuoso en un incidente de infraestructura.
 
-## Consumo de enero de 2026
+El programa CSC enlaza `artfisica/csc2026`. Las revisiones documentales son 9c0761b7cf (11 enero) y 6ecfbd1377 (12 enero); para SILAFAE, 05f22ca46a y 1b48cc9af8 (8 noviembre 2024). No etiquetaremos ninguna como «versión usada por los estudiantes» sin confirmación. Los tags de edición se crearán en los repositorios docentes después de esa identificación; el ensayo ya cita SHA completos.
 
-No se ha accedido a la facturación de la organización laa-hecap. No se presupone que enero ya no esté disponible. La documentación de GitHub describe resúmenes de uso de los últimos 24 meses y descarga de informes desde la interfaz de facturación; la disponibilidad concreta depende del acceso y de la cuenta.
+Podemos consultar enero de 2026 en la facturación de la organización: Settings → Billing & licensing → Usage, período de enero y producto Codespaces. El CSV detallado y los resúmenes por SKU/unidad permitirán separar cómputo, almacenamiento y costos. Filtraremos por repositorio y no atribuiremos todo el consumo mensual a la escuela. La disponibilidad concreta debe comprobarla un propietario o gestor de facturación. Documentación: https://docs.github.com/en/billing/tutorials/gather-insights y https://docs.github.com/en/rest/billing/usage .
 
-Un propietario o gestor de facturación puede abrir Settings → Billing & licensing → Usage de la organización, elegir enero de 2026 y Codespaces, y descargar el CSV. Filtrar por los repositorios realmente utilizados y conservar también el período completo para distinguir actividad escolar de otra actividad. Agregar por producto, SKU y unidad: no sumar cómputo y almacenamiento ni confundir cantidad, costo bruto y facturado. Compartir solo el agregado y la descripción de filtros, sin identificadores personales. El informe de facturación no proporciona por sí solo tiempos de onboarding ni pruebas de aprendizaje.
+## Afiliaciones y envío
 
-Documentación consultada el 21 de octubre de 2026:
-- https://docs.github.com/en/billing/tutorials/gather-insights
-- https://docs.github.com/en/rest/billing/usage
-- https://docs.github.com/en/billing/reference/billing-reports
+Para estos ensayos mantenemos las afiliaciones de los capítulos de Creative Commons ya acordadas. Describen la vinculación declarada para los manuscritos actuales; no modificamos retroactivamente las afiliaciones de otras publicaciones ni suponemos quién pagó cada actividad. Declaramos por separado la relación de Arturo con INAIT y sus apoyos a CoAfina. Añadiremos las direcciones institucionales para correspondencia; no usamos domicilios personales como sustitutos.
 
-## Archivos web
-
-El 21 de octubre de 2026, Wayback Availability devolvió HTTP 429 y Save Page Now agotó el tiempo de espera para las tres páginas LA-CoNGA. No se obtuvo una captura verificable. Reintentar desde https://web.archive.org/save/ y añadir en cada referencia el enlace de captura con 14 dígitos y fecha de consulta. Revisar que la captura contiene la afirmación citada.
-
-Para CoAfina 2025 hace falta una captura que conserve realmente la convocatoria de 2025; archivar hoy la portada de 2026 no cierra C06. La afirmación de 2025 se retiró del texto y C06 permanece pendiente en el registro editorial, no verificada. Los otros dos enlaces siguen citados y generan advertencia de archivo en modo borrador.
+Registraremos la revisión de la versión final por cada autor en `manuscript_approval` de `papers.json`, con el commit aprobado. Un estado pendiente no cambia la lista pública de autores. La consulta editorial sobre el preprint sigue preparada para envío. Reuniremos la declaración de asistencia de herramientas en la carta de presentación y la revisaremos antes de enviarla.
