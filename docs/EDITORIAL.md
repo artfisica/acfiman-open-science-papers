@@ -5,7 +5,9 @@ Guía consultada 2026-10-21: https://acfiman.org/boletines/
 
 Formato implementado: carta, una columna, clase article, títulos/resúmenes/palabras clave bilingües, resúmenes <=150 palabras, secciones numeradas y bibliografía numérica por orden de cita. XeLaTeX permite español Unicode. Figuras vectoriales PDF separadas a 160 mm. Las tablas no tienen líneas internas ni sombreado. `make export` integra referencias y secciones en un único main.tex por artículo.
 
-Pendientes: afiliaciones y direcciones postales institucionales autorizadas; correo de correspondencia; confirmación de autoría y orden (incluida la grafía de Oscar); contribuciones, financiación y conflictos; revisión completa de datos y referencias. El nombre y fecha de borrador no significan aceptación por ACFIMAN. Los resúmenes ICHEP fueron aceptados como charlas; los autores informan que se retiraron por imposibilidad de asistir. Esto no equivale a arbitraje de los manuscritos completos.
+Afiliaciones indicadas por Arturo el 21 de octubre de 2026: Oscar, Creative Commons Venezuela; Arturo, Creative Commons Venezuela y Creative Commons Switzerland.
+
+Pendientes: direcciones postales institucionales autorizadas; correo de correspondencia; confirmación de autoría y orden (incluida la grafía de Oscar); contribuciones, financiación y conflictos; revisión completa de datos y referencias. El nombre y fecha de borrador no significan aceptación por ACFIMAN. Los resúmenes ICHEP fueron aceptados como charlas; los autores informan que se retiraron por imposibilidad de asistir. Esto no equivale a arbitraje de los manuscritos completos.
 
 ## Preprint y originalidad
 La guía exige material no publicado ni enviado a otros órganos de difusión y no explicita una excepción para preprints. Recomendada creación privada inicial y consulta editorial antes de publicar los textos. El repositorio funciona igual en privado o público. No se ha creado ni publicado ningún repositorio con este paquete. Una copia pública con PDF puede ser considerada preprint; no se asegura compatibilidad editorial.

@@ -8,3 +8,7 @@ T06,Antecedentes transversales2021/2024,https://arxiv.org/abs/2104.09622;https:/
 T07,CHEP2021 artículo,https://doi.org/10.1051/epjconf/202125101008,pending,Metadatos en SOURCES.md; revisar original antes de envío
 T08,Mejora de aprendizaje,sources/accepted-abstract.md,pending,No evaluada; se propone protocolo
 T09,Flujo remoto del repositorio nuevo,../../docs/VALIDATION.md,pending,Compilación local verificada; primera ejecución GitHub pendiente
+T11,ROOT Workshop 2015: análisis web y formación en ROOT,https://indico.cern.ch/event/349459/contributions/822780/attachments/1154438/1658747/ROOT_Workshop_Arturo_Sanchez_09152015.pdf,verified,Presentación de Arturo Sánchez; antecedente histórico
+T12,Software Training in HEP incluye a Arturo Sánchez Pineda como coautor,https://doi.org/10.1007/s41781-021-00069-9,verified,Mismo trabajo que arXiv:2103.00659; una referencia
+T13,VRE Hub documenta flujos de análisis y preservación FAIR,https://github.com/vre-hub,verified,Descripción del proyecto; no acredita despliegue en los talleres
+T14,Perfil CSC: Arturo Sánchez es docente desde 2022,https://indico.cern.ch/event/1551289/page/39511-lecturers,verified,Texto indexado de la página institucional; apertura directa 403
