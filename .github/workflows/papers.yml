@@ -25,6 +25,8 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Trust the checked-out workspace
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Validate and compile
         run: make all
       - name: Assemble reading portal
