@@ -1,10 +1,10 @@
 {
   "paper": "02-computacion-reproducible",
-  "source_commit": "df5a3af6e5be6789ab81bbfa8044072ef13363e1",
+  "source_commit": "1c45498a0c22a45e51effa94074751feeb11469e",
   "source_date": "2026-10-21",
-  "source_epoch": 1792621072,
+  "source_epoch": 1792621698,
   "source_dirty": false,
-  "pdf_sha256": "e82e935048a8d17ccee4fdb835db2cddbde364b7faca5409a5d122ac10a12dba",
+  "pdf_sha256": "0a37a8e58a2341c54842e65cfed9a651eb585c8cbacf9bd6ffcbb1f66dc35982",
   "inputs": {
     ".devcontainer/devcontainer.json": "d2d6c5529d01387a4ad1772c3ccb7814ca26ac24b724ef0b82576596856ffeea",
     ".github/workflows/papers.yml": "2c8e49a7016a70774334d6ba87ac1a499134f6e8d3a5ca4d10f35ed167ce21d1",
@@ -24,7 +24,7 @@
     "papers/02-computacion-reproducible/text/07-discusion.tex": "8e9053b6b5200eb14df527cf21b27321a32ca37500afcb28af619ccdb39c98ae",
     "papers/02-computacion-reproducible/text/abstract-en.tex": "36b2d985800223a31bace4ffec97f714959499b3b944e15df405c005af0718ce",
     "papers/02-computacion-reproducible/text/abstract-es.tex": "a81ac94a7a9afd90dde2e6286310909663bfd3617406e2b77395c25e5c05d5ed",
-    "papers.json": "053bbea285ef9550b5cdf04c93bbcf9479f528afe5cdea3c9495e950ed0ac000",
+    "papers.json": "aff780c02ac12713d7c9e718852c69a465797fa9cf51f680abc92f15cd4b1bab",
     "scripts/build.py": "6b55737b75d3c13d62e6c7bb13728b09901d6b524f2a7cd37053e9a0bb74b90c",
     "scripts/build_pages.py": "e5c51570a05495f49f06ce7512b02bf2d72175635d3d6de3618cff9e614a4683",
     "scripts/check.py": "32799275a3355b8b4cb6fbc2f70bae86aa236a26dbaacb9cb219e29f9a9985e7",

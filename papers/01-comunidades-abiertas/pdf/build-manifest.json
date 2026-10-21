@@ -1,10 +1,10 @@
 {
   "paper": "01-comunidades-abiertas",
-  "source_commit": "df5a3af6e5be6789ab81bbfa8044072ef13363e1",
+  "source_commit": "1c45498a0c22a45e51effa94074751feeb11469e",
   "source_date": "2026-10-21",
-  "source_epoch": 1792621072,
+  "source_epoch": 1792621698,
   "source_dirty": false,
-  "pdf_sha256": "89b77d083223d1601f83df1b84183badc0e247a0090fca0f187f18175ea5bf90",
+  "pdf_sha256": "67de9eea9ecb6b6c9c1e7aadae8c0bca842998797b6773d6949556fd223738cb",
   "inputs": {
     ".devcontainer/devcontainer.json": "d2d6c5529d01387a4ad1772c3ccb7814ca26ac24b724ef0b82576596856ffeea",
     ".github/workflows/papers.yml": "2c8e49a7016a70774334d6ba87ac1a499134f6e8d3a5ca4d10f35ed167ce21d1",
@@ -22,7 +22,7 @@
     "papers/01-comunidades-abiertas/text/06-conclusiones.tex": "d0b4c8fec19742705c2928e5a4585892cf4c2ab87d018eabe8eae192fe42b1e0",
     "papers/01-comunidades-abiertas/text/abstract-en.tex": "60bceb5c111755fdc05c82072f5d2f1db7d32c346309b99f055f6f59011fe485",
     "papers/01-comunidades-abiertas/text/abstract-es.tex": "c720ff9bf8f97a0a54aa2b3d220587e216a979eb91bb4212d3659270692b70d4",
-    "papers.json": "053bbea285ef9550b5cdf04c93bbcf9479f528afe5cdea3c9495e950ed0ac000",
+    "papers.json": "aff780c02ac12713d7c9e718852c69a465797fa9cf51f680abc92f15cd4b1bab",
     "scripts/build.py": "6b55737b75d3c13d62e6c7bb13728b09901d6b524f2a7cd37053e9a0bb74b90c",
     "scripts/build_pages.py": "e5c51570a05495f49f06ce7512b02bf2d72175635d3d6de3618cff9e614a4683",
     "scripts/check.py": "32799275a3355b8b4cb6fbc2f70bae86aa236a26dbaacb9cb219e29f9a9985e7",
