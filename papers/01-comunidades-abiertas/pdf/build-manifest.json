@@ -1,14 +1,14 @@
 {
   "paper": "01-comunidades-abiertas",
-  "pdf_sha256": "789970b9e42fc295513b448a5c726f5d99ff40c4065c0e95f64f3acaa6fac2f2",
+  "pdf_sha256": "73ff996ec7908586a968491c42afadea3c9e5535fe7a8b506e51632fd080035f",
   "inputs": {
     "papers/01-comunidades-abiertas/data/evidence.csv": "bdbc452abff3daff64d1a7ec4a917cc924d294e712de6648ef8b3c40ba8ea127",
     "papers/01-comunidades-abiertas/figures/modelo.tex": "bf5f5412cd36216b9016442efc2045a863eaaa7c88f7ac5aab04d2b934076a39",
-    "papers/01-comunidades-abiertas/main.tex": "66fe1f5507523deaba2fdbf8d61f3e5e248a6725a2bd491179a6643388dc0d5e",
+    "papers/01-comunidades-abiertas/main.tex": "95b829787b2771080e1cfc51ebc98d7105a09223198bbeb77da3446af47d8a07",
     "papers/01-comunidades-abiertas/references.tex": "e9862e209b9b867680a4f0d33998a5c590c83cffb3dccdf24b6fba514b33aea7",
     "papers/01-comunidades-abiertas/text/01-introduccion.tex": "66ab59819fa8d7d26a7316be3e9527c2e76cf902693cf9c6ad89ec8634265938",
     "papers/01-comunidades-abiertas/text/02-metodo.tex": "1c303b3a308f3cfd7857e9f271b7a17b1a6e240b610dbba496058a23b71fe74f",
-    "papers/01-comunidades-abiertas/text/03-casos.tex": "4159a2b8f089feb88fc2093885852be76e69723e7af31ad64355025ad57343ea",
+    "papers/01-comunidades-abiertas/text/03-casos.tex": "8f9d91d40aa05b8d28d46bc455d92a9774b100b0a16769a4855ffe309381f7fb",
     "papers/01-comunidades-abiertas/text/04-modelo.tex": "809193567e5768ad08de209708bec4dc1e78acea30a223f83580c0d15d1d549c",
     "papers/01-comunidades-abiertas/text/05-discusion.tex": "b86610e4b34e80b5b27f93826042fbcd8ef9f876773a480de25ff48636678cc6",
     "papers/01-comunidades-abiertas/text/06-conclusiones.tex": "e918ca6d6eaaa5dfc045b486282548a99cac034fd37acb9ce2461e7af58b2406",
