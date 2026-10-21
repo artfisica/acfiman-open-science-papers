@@ -1,25 +1,22 @@
-# Del cambio al PDF
+# Flujo de edición y publicación
 
-| Etapa | Lugar | Resultado |
-|---|---|---|
-| Escritura y revisión | Codespaces o equipo local | Cambios en LaTeX/datos/figuras |
-| Control de versiones | Git/GitHub | Commit de fuentes |
-| Compilación | Runner Ubuntu de GitHub Actions | Figuras PDF y dos manuscritos |
-| Comprobaciones | scripts/check.py y compilador | Límites de resumen, referencias, errores de maquetación |
-| Publicación en el repo | Job separado con token de escritura | Mismas rutas PDF, nuevo commit |
-| Lectura | GitHub | PDF accesible sin descargar artifacts |
+1. Modificar fuentes y `papers.json` en Codespaces; ejecutar `make all`.
+2. Revisar ambos PDF, guardar las fuentes en un commit y subirlo.
+3. CI usa la misma imagen TeX Live por digest que Codespaces. Las acciones están fijadas por SHA. El job de construcción solo puede leer el repositorio.
+4. En la rama predeterminada, el job `publish` verifica que la rama no avanzó, recupera los resultados y actualiza los PDF, figuras y manifiestos con un commit. Nunca fuerza un push. Un rechazo por protección de rama debe resolverse mediante la política del repositorio, no eludiéndola.
+5. Pages despliega el mismo conjunto de resultados tras completar la publicación. Cada ruta contiene el PDF más reciente; el manifiesto permite identificar su contenido.
+6. Guardar cambios locales y ejecutar `git pull --ff-only` antes de continuar escribiendo.
 
-La compilación no valida la verdad científica. Una compilación correcta no cierra los pendientes editoriales ni convierte el borrador en publicación arbitrada.
+## Procedencia
 
-## Ejercicio para estudiantes
-1. Crear una rama y cambiar una frase de la introducción sin tocar los PDF.
-2. Ejecutar `make all` y comparar el texto extraído o la vista PDF.
-3. Abrir un PR; comprobar que CI valida sin escribir en la rama.
-4. Integrar el PR; observar el commit posterior del bot y abrir el PDF actual.
-5. Añadir una cita nueva y su entrada en el orden correcto; comprobar el verificador.
-6. Introducir intencionadamente una llave LaTeX sin cerrar. La compilación debe fallar y no debe publicarse ningún PDF parcial. Reparar y volver a compilar.
+`SOURCE_DATE_EPOCH` y el banner proceden del último commit que afecta a entradas de compilación. Un commit del bot que solo guarda salidas no cambia esa revisión. Los manifiestos incluyen hashes de fuentes, scripts y configuración; la tabla CoAfina incluye su CSV. El ledger editorial `evidence.csv` no se presenta como entrada de LaTeX. El motor real y el entorno declarado se registran por separado. Fijar una imagen reduce variación de herramientas, pero no garantiza por sí solo igualdad binaria en cualquier arquitectura.
 
-El archivo build-manifest.json relaciona cada PDF con hashes de sus entradas. El historial Git relaciona esas entradas con autores y revisiones. Las ramas, el bot y los registros permiten estudiar tanto aciertos como errores.
+Las fechas mostradas son fechas de **revisión de las fuentes**, no hora de descarga ni fecha de publicación editorial. Los cambios locales se marcan. Para actualizar el contenedor, revisar el nuevo digest y cambiarlo simultáneamente en workflow y Codespaces; `make check` comprueba esa igualdad. La imagen Debian elegida incluye Git, Python, Make y TeX Live; no se ejecuta instalación apt en CI.
 
-Documentación técnica: https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow
-Entornos: https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
+## Verificación
+
+Se comprueban longitud de resúmenes, orden y resolución de citas, etiquetas referenciadas, IDs de evidencia, metadatos de envío y paridad de contenedor. La compilación falla ante referencias sin resolver o desbordamientos mayores de 5 pt; los menores se notifican para revisión visual. `make export` exige el modo estricto y vuelve a compilar antes de empaquetar.
+
+## Hitos opcionales
+
+Los commits de PDF se mantienen. Para un hito revisado puede añadirse un tag y una Release, sin cambiar las rutas actuales. Antes de crearla, copiar los dos PDF a nombres distintos (`comunidades.pdf` y `computacion.pdf`) para evitar colisiones de assets, acompañados de sus manifiestos. No publicar una Release ni activar archivo externo hasta elegir el hito y revisar su contenido. El hash y la revisión del portal permiten identificar también borradores intermedios.

@@ -1,14 +1,20 @@
 id,claim,source,status,notes
-T01,Despliegue SILAFAE XV noviembre2024,sources/accepted-abstract.md,author_report,"Recuperar commit,programa y registros del taller"
-T02,CSC Santiago 11-24enero2026,https://indico.cern.ch/event/1551289/timetable/?view=standard_numbered,verified,Programa institucional; no valida velocidad ni denominador
-T03,80 estudiantes en menos de10 minutos,sources/accepted-abstract.md,author_report,"Definir intervalo,preparación previa,denominador y logs"
-T04,GitLab y GitHub en despliegues,sources/accepted-abstract.md,author_report,Recuperar configuraciones y pruebas por plataforma
-T05,Repositorios de ejercicios existentes,https://github.com/laa-hecap/jupyter-on-codespaces;https://github.com/laa-hecap/exercises-silafae,verified,README consultado; no acredita ejecución histórica
-T06,Antecedentes transversales2021/2024,https://arxiv.org/abs/2104.09622;https://zenodo.org/records/13324266,verified,Propuestas y antecedentes; distinguir de medición
-T07,CHEP2021 artículo,https://doi.org/10.1051/epjconf/202125101008,pending,Metadatos en SOURCES.md; revisar original antes de envío
-T08,Mejora de aprendizaje,sources/accepted-abstract.md,pending,No evaluada; se propone protocolo
-T09,Flujo remoto del repositorio nuevo,../../docs/VALIDATION.md,pending,Compilación local verificada; primera ejecución GitHub pendiente
-T11,ROOT Workshop 2015: análisis web y formación en ROOT,https://indico.cern.ch/event/349459/contributions/822780/attachments/1154438/1658747/ROOT_Workshop_Arturo_Sanchez_09152015.pdf,verified,Presentación de Arturo Sánchez; antecedente histórico
-T12,Software Training in HEP incluye a Arturo Sánchez Pineda como coautor,https://doi.org/10.1007/s41781-021-00069-9,verified,Mismo trabajo que arXiv:2103.00659; una referencia
-T13,VRE Hub documenta flujos de análisis y preservación FAIR,https://github.com/vre-hub,verified,Descripción del proyecto; no acredita despliegue en los talleres
-T14,Perfil CSC: Arturo Sánchez es docente desde 2022,https://indico.cern.ch/event/1551289/page/39511-lecturers,verified,Texto indexado de la página institucional; apertura directa 403
+T01,"Organización, versionado y automatización en computación científica",https://doi.org/10.1371/journal.pcbi.1005510,verified,Fuente documental; alcance delimitado en el texto.
+T02,Propuesta de prácticas computacionales transversales de 2021,https://doi.org/10.48550/arXiv.2104.09622,verified,Fuente documental; alcance delimitado en el texto.
+T03,Estrategia de capacidades compartidas para investigación y formación,https://doi.org/10.5281/zenodo.13324266,verified,Fuente documental; alcance delimitado en el texto.
+T04,Tesis venezolanas y formación con ATLAS Open Data,https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data,verified,Fuente documental; alcance delimitado en el texto.
+T05,Despliegue multiusuario publicado de ATLAS Open Data,https://doi.org/10.1051/epjconf/202125101008,verified,Fuente documental; alcance delimitado en el texto.
+T06,Análisis web y tutoriales ROOT presentados en 2015,https://indico.cern.ch/event/349459/contributions/822780/attachments/1154438/1658747/ROOT_Workshop_Arturo_Sanchez_09152015.pdf,verified,Fuente documental; alcance delimitado en el texto.
+T07,Organización de competencias y funciones docentes HSF/IRIS-HEP,https://doi.org/10.1007/s41781-021-00069-9; https://arxiv.org/abs/2103.00659,verified,Fuente documental; alcance delimitado en el texto.
+T08,Infraestructura de ciencia abierta para física y astrofísica,https://projectescape.eu/,verified,Fuente documental; alcance delimitado en el texto.
+T09,Directorio de herramientas de ESCAPE,https://escape2020.pages.in2p3.fr/virtual-environment/tools/,verified,Fuente documental; alcance delimitado en el texto.
+T10,Flujos de análisis y preservación documentados por VRE Hub,https://github.com/vre-hub,verified,Fuente documental; alcance delimitado en el texto.
+T11,Definición del entorno mediante contenedores de desarrollo,https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers,verified,Fuente documental; alcance delimitado en el texto.
+T12,Repositorios docentes públicos de LAA-HECAP,https://github.com/laa-hecap/jupyter-on-codespaces; https://github.com/laa-hecap/exercises-silafae,verified,Fuente documental; alcance delimitado en el texto.
+T13,Entornos compartibles desde repositorios en Binder 2.0,https://doi.org/10.25080/Majora-4af1f417-011,verified,Fuente documental; alcance delimitado en el texto.
+T14,Condiciones de uso del servicio público Binder,https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html,verified,Fuente documental; alcance delimitado en el texto.
+T15,Gestión multiusuario y autenticación en JupyterHub,https://jupyterhub.readthedocs.io/en/stable/,verified,Fuente documental; alcance delimitado en el texto.
+T16,Cuadernos gestionados con límites de recursos variables,https://research.google.com/colaboratory/faq.html,verified,Fuente documental; alcance delimitado en el texto.
+T17,"Cómputo, almacenamiento y preconstrucciones facturables en Codespaces",https://docs.github.com/en/billing/concepts/product-billing/github-codespaces,verified,Fuente documental; alcance delimitado en el texto.
+T18,CSC Santiago: 11–24 de enero de 2026,https://indico.cern.ch/event/1551289/timetable/?view=standard_numbered,verified,Fuente documental; alcance delimitado en el texto.
+T19,Arturo Sánchez en el equipo docente de CSC,https://indico.cern.ch/event/1551289/page/39511-lecturers,verified,Fuente documental; alcance delimitado en el texto.

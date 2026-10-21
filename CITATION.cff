@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Cite this record for the editorial software. Manuscript authors and titles are in papers.json; include the source revision from each PDF manifest."
+title: "Ciencia abierta: reproducible manuscript workflow"
+type: software
+authors:
+  - family-names: Sánchez Pineda
+    given-names: Arturo
+repository-code: "https://github.com/artfisica/acfiman-open-science-papers"
+license: MIT

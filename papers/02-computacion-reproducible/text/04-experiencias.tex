@@ -1,26 +1,14 @@
-\section{Experiencias de despliegue y alcance de la evidencia}
-\subsection{SILAFAE XV}
-El resumen ICHEP informa del uso del enfoque durante un taller asociado con SILAFAE XV en noviembre de 2024. Describe trabajo con datos científicos abiertos, cuadernos y herramientas colaborativas \cite{abstract}. Este antecedente sitúa el método en una actividad concreta de formación en física. No se dispone en este borrador de una serie de tiempos individuales de preparación, incidencias o resultados de evaluación de esa cohorte.
+\section{Resultados del análisis técnico}
+\subsection{Opciones de despliegue y responsabilidades}
+El cuadro~\ref{tab:plataformas} compara decisiones operativas. Binder 2.0 describe la publicación de entornos interactivos a partir de repositorios \cite{binderpaper}; el servicio público mybinder.org establece límites para sesiones efímeras \cite{binder}. JupyterHub permite administrar entornos por usuario y autenticación bajo control del operador \cite{jupyterhub}. Colab ofrece cuadernos gestionados con disponibilidad y límites variables \cite{colab}. Codespaces añade un entorno de desarrollo asociado al repositorio, con consumo de cómputo y almacenamiento facturable \cite{billing}.
 
-La experiencia permite formular una hipótesis operativa: preparar un entorno común antes de la sesión puede reducir parte del soporte dedicado a dependencias locales. Para estimar cuánto reduce y en qué condiciones, sería necesario registrar tiempos y dificultades con una definición compartida. El informe del autor es pertinente como descripción de implementación; no basta para calcular una mejora promedio respecto de una alternativa no medida.
+\input{tables/plataformas}
 
-\subsection{CSC América Latina 2026}
-El programa de la 47.ª CERN School of Computing sitúa la escuela en Santiago de Chile del 11 al 24 de enero de 2026 \cite{csc}. La página institucional de docentes identifica a Sánchez Pineda como integrante del equipo y señala su incorporación como profesor de la CSC en 2022 \cite{csclecturers}. Este registro respalda la continuidad de su actividad docente, sin constituir una medición del rendimiento del entorno. El resumen aceptado declara un despliegue satisfactorio y una preparación para 80 estudiantes en menos de diez minutos \cite{abstract}. Se conserva aquí ese resultado como observación comunicada por el autor, pendiente de reconstrucción documental del procedimiento y del intervalo temporal.
+La comparación permite una decisión concreta: un ejercicio breve que solo necesita ejecutar un cuaderno tiene requisitos diferentes de un curso que enseña ramas, revisión de cambios y desarrollo de software. Codespaces encaja en este segundo objetivo si hay cuentas, conectividad y presupuesto; un JupyterHub institucional puede concentrar la administración cuando existe soporte local. Binder facilita demostraciones compartibles, mientras Colab ofrece una entrada rápida a cuadernos. La elección debe incluir el procedimiento para exportar el trabajo del alumno y conservarlo al terminar.
 
-La frase puede referirse a operaciones diferentes: preparar el repositorio, provisionar entornos, iniciar sesiones o lograr la primera ejecución correcta. Esas cantidades no deben confundirse. Tampoco se sabe, a partir del resumen, qué parte de la preparación se realizó antes del intervalo ni qué recursos estaban ya en caché. Por eso no se interpreta como 80 instalaciones independientes completadas desde cero, ni se deriva una tasa por estudiante.
+\subsection{Contexto docente e inventario de evidencia}
+Los ejercicios públicos asociados a SILAFAE permiten examinar materiales de formación sin deducir de ellos tiempos de incorporación históricos. La 47.ª CERN School of Computing se celebró en Santiago del 11 al 24 de enero de 2026 \cite{csc}; su página de docentes incluye a Arturo Sánchez \cite{csclecturers}. Estos registros sitúan el contexto formativo. El cuadro~\ref{tab:evidencia} explicita qué evidencia sustenta cada afirmación del ensayo.
 
-La revisión de este borrador debe añadir registros operativos, materiales de clase y una definición del denominador: personas previstas, cuentas provisionadas, participantes conectados o ejecuciones exitosas. La falta de esos registros no borra la experiencia, pero limita el alcance cuantitativo que puede atribuirse a ella. El protocolo siguiente permite recoger datos comparables en futuras sesiones sin transformar retrospectivamente una observación en un experimento.
+\input{tables/evidencia}
 
-\subsection{Qué está observado y qué queda por demostrar}
-\begin{table}[htbp]\centering\small
-\caption{Niveles de evidencia del informe.}\label{tab:evidencia}
-\begin{tabularx}{\linewidth}{@{}p{36mm}XX@{}}
-\toprule
-Afirmación & Base disponible & Límite \\
-Uso en SILAFAE XV & Resumen aceptado del autor & Sin medición comparable de tiempos \\
-Escuela CSC 2026 & Programa institucional & No verifica por sí solo el rendimiento del entorno \\
-80 estudiantes, menos de 10 minutos & Observación en el resumen & Intervalo y registros por precisar \\
-Aprendizaje mejorado & No medido en este trabajo & Requiere evaluación específica \\
-\bottomrule
-\end{tabularx}
-\end{table}
+El resultado técnico de esta lectura es separar tres objetos que suelen confundirse: un repositorio disponible, un entorno que ejecuta una tarea y una experiencia docente evaluada. Cada uno necesita una comprobación diferente. El repositorio permite inspección; una prueba limpia verifica ejecución; un registro por sesión permite estimar tiempos, incidencias y recursos. La arquitectura organiza esas comprobaciones sin sustituir una por otra.

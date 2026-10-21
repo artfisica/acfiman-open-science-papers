@@ -1,0 +1,91 @@
+{
+  "repository": "https://github.com/artfisica/acfiman-open-science-papers",
+  "affiliations": {
+    "cc-ve": {
+      "name": "Creative Commons Venezuela",
+      "postal_address": null
+    },
+    "cc-ch": {
+      "name": "Creative Commons Switzerland",
+      "postal_address": null
+    }
+  },
+  "papers": [
+    {
+      "directory": "01-comunidades-abiertas",
+      "slug": "comunidades",
+      "title": "Hackatones y prácticas abiertas para construir comunidades científicas en América Latina",
+      "title_en": "Hackathons and open practices for building scientific communities in Latin America",
+      "authors": [
+        {
+          "name": "Oscar Altuve Pabon",
+          "affiliations": [
+            "cc-ve"
+          ]
+        },
+        {
+          "name": "Arturo Sánchez Pineda",
+          "affiliations": [
+            "cc-ve",
+            "cc-ch"
+          ]
+        },
+        {
+          "name": "Iskya García",
+          "affiliations": [
+            "cc-ve"
+          ],
+          "profile": "https://www.linkedin.com/in/iskya-garc%C3%ADa-09454711b/"
+        },
+        {
+          "name": "Ariana Moreno",
+          "affiliations": [
+            "cc-ve"
+          ],
+          "profile": "https://www.linkedin.com/in/ariana-moreno-9b3017219/"
+        },
+        {
+          "name": "Estefanía Sánchez Pineda",
+          "affiliations": [
+            "cc-ve"
+          ],
+          "profile": "https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/"
+        },
+        {
+          "name": "Diego Salcedo Flores",
+          "affiliations": [
+            "cc-ve"
+          ],
+          "profile": "https://www.linkedin.com/in/diego-salcedo-flores/"
+        }
+      ],
+      "status": "draft",
+      "article_type": "ensayo",
+      "corresponding_author": "Arturo Sánchez Pineda",
+      "corresponding_email": null,
+      "editorial_policy_confirmed": false,
+      "declarations_reviewed": false
+    },
+    {
+      "directory": "02-computacion-reproducible",
+      "slug": "computacion",
+      "title": "Entornos reproducibles y automatización para la formación en física: una experiencia de computación transversal en América Latina",
+      "title_en": "Reproducible environments and automation for physics education: a transversal computing experience in Latin America",
+      "authors": [
+        {
+          "name": "Arturo Sánchez Pineda",
+          "affiliations": [
+            "cc-ve",
+            "cc-ch"
+          ]
+        }
+      ],
+      "status": "draft",
+      "article_type": "ensayo",
+      "corresponding_author": "Arturo Sánchez Pineda",
+      "corresponding_email": null,
+      "editorial_policy_confirmed": false,
+      "declarations_reviewed": false
+    }
+  ]
+}

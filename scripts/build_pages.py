@@ -1,30 +1,29 @@
-#!/usr/bin/env python3
-"""Assemble the static reading portal from the current, verified PDF outputs."""
-import hashlib
-import json
-import shutil
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / '_site'
-PAPERS = {'comunidades': '01-comunidades-abiertas', 'computacion': '02-computacion-reproducible'}
-
+"""Render the reading portal from shared metadata and current source-verified PDFs."""
+import html, json, shutil
+from common import ROOT, metadata, inputs, sha
+OUTPUT=ROOT/'_site'
 def main():
-    # Verify all inputs before replacing the previous site.
-    for directory in PAPERS.values():
-        folder = ROOT / 'papers' / directory / 'pdf'
-        pdf = (folder / 'manuscript.pdf').read_bytes()
-        manifest = json.loads((folder / 'build-manifest.json').read_text())
-        if not pdf.startswith(b'%PDF-') or hashlib.sha256(pdf).hexdigest() != manifest['pdf_sha256']:
-            raise SystemExit(f'Invalid PDF or stale manifest: {directory}; run make all first.')
-    if OUTPUT.exists():
-        shutil.rmtree(OUTPUT)
-    shutil.copytree(ROOT / 'web', OUTPUT)
-    (OUTPUT / 'pdf').mkdir()
-    (OUTPUT / '.nojekyll').touch()
-    for slug, directory in PAPERS.items():
-        shutil.copy2(ROOT / 'papers' / directory / 'pdf' / 'manuscript.pdf', OUTPUT / 'pdf' / f'{slug}.pdf')
-    print(f'Pages ready: {OUTPUT}')
-
-if __name__ == '__main__':
-    main()
+    meta=metadata(); papers={}
+    for index,item in enumerate(meta['papers'],1):
+        p=ROOT/'papers'/item['directory'];manifest=json.loads((p/'pdf/build-manifest.json').read_text())
+        pdf=p/'pdf/manuscript.pdf'
+        if not pdf.read_bytes().startswith(b'%PDF-') or sha(pdf)!=manifest['pdf_sha256']:raise SystemExit('Invalid PDF: '+p.name)
+        current={str(f.relative_to(ROOT)):sha(f) for f in inputs(p)}
+        if current!=manifest['inputs']:raise SystemExit('Sources changed; run make all: '+p.name)
+        papers[item['slug']]={**item,'label':f'{index:02}','authors':', '.join(a['name'] for a in item['authors']),'manifest':manifest}
+    if OUTPUT.exists():shutil.rmtree(OUTPUT)
+    shutil.copytree(ROOT/'web',OUTPUT);(OUTPUT/'pdf').mkdir();(OUTPUT/'manifests').mkdir();(OUTPUT/'.nojekyll').touch()
+    for slug,item in papers.items():
+        p=ROOT/'papers'/item['directory']/'pdf'
+        shutil.copy2(p/'manuscript.pdf',OUTPUT/'pdf'/f'{slug}.pdf')
+        shutil.copy2(p/'build-manifest.json',OUTPUT/'manifests'/f'{slug}.json')
+    (OUTPUT/'papers.json').write_text(json.dumps(papers,ensure_ascii=False,indent=2)+'\n')
+    # JSON text is external, and all HTML substitutions are escaped.
+    first=next(iter(papers.values()));template=(ROOT/'web/index.html').read_text()
+    replacements={'TITLE':first['title'],'AUTHORS':first['authors'],'VERSION':f"Fuentes: {first['manifest']['source_date']} · {first['manifest']['source_commit'][:10]}"}
+    for k,v in replacements.items():template=template.replace('{{'+k+'}}',html.escape(v))
+    template=template.replace('{{ROBOTS}}','noindex, nofollow' if any(x['status']=='draft' for x in papers.values()) else 'index, follow')
+    template=template.replace('{{STATUS}}','Borradores de trabajo' if any(x['status']=='draft' for x in papers.values()) else 'Manuscritos preparados para envío')
+    (OUTPUT/'index.html').write_text(template)
+    print('Pages ready:',OUTPUT)
+if __name__=='__main__':main()

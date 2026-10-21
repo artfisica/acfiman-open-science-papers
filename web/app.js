@@ -1,8 +1,5 @@
 'use strict';
-const papers = {
-  comunidades: {label: '01', title: 'Hackatones y prácticas abiertas para construir comunidades científicas en América Latina', authors: 'Oscar Altuve Pabon, Arturo Sánchez Pineda, Iskya García, Ariana Moreno, Estefanía Sánchez Pineda y Diego Salcedo Flores', directory: '01-comunidades-abiertas'},
-  computacion: {label: '02', title: 'Entornos reproducibles y automatización para la formación en física: una experiencia de computación transversal en América Latina', authors: 'Arturo Sánchez Pineda', directory: '02-computacion-reproducible'}
-};
+let papers;
 function selectPaper() {
   const id = Object.hasOwn(papers, location.hash.slice(1)) ? location.hash.slice(1) : 'comunidades';
   const paper = papers[id];
@@ -18,10 +15,14 @@ function selectPaper() {
   const pdf = `pdf/${id}.pdf`;
   for (const link of ['open-pdf', 'download-pdf']) document.getElementById(link).href = pdf;
   document.getElementById('source').href = `https://github.com/artfisica/acfiman-open-science-papers/tree/main/papers/${paper.directory}`;
+  const manifest = paper.manifest;
+  document.getElementById('reader-version').textContent = `Fuentes: ${manifest.source_date} · ${manifest.source_commit.slice(0, 10)}${manifest.source_dirty ? ' · cambios locales' : ''}`;
+  document.getElementById('reader-hash').textContent = `PDF SHA-256: ${manifest.pdf_sha256}`;
+  document.getElementById('manifest').href = `manifests/${id}.json`;
   const viewer = document.getElementById('pdf-viewer');
-  viewer.src = `${pdf}#view=FitH`;
+  if (window.matchMedia('(min-width: 801px)').matches) viewer.src = `${pdf}#view=FitH`;
+  else viewer.removeAttribute('src');
   viewer.title = `PDF: ${paper.title}`;
   document.title = `${paper.title} · Ciencia abierta`;
 }
-window.addEventListener('hashchange', selectPaper);
-selectPaper();
+fetch('papers.json').then(response => { if (!response.ok) throw new Error('Metadata unavailable'); return response.json(); }).then(data => { papers = data; window.addEventListener('hashchange', selectPaper); window.addEventListener('resize', selectPaper); selectPaper(); }).catch(() => { document.getElementById('reader-version').textContent += ' · Use los enlaces directos a los PDF.'; });

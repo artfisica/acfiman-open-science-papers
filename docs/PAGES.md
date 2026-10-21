@@ -1,65 +1,14 @@
 # Portal de lectura
 
-Sitio estático en español con selector de dos manuscritos, visor PDF, enlaces de
-descarga y acceso al código fuente. Es independiente de ACFIMAN. No utiliza
-analítica, fuentes externas ni dependencias de JavaScript.
+El workflow despliega `_site/` mediante GitHub Pages después de compilar y guardar los PDF. Settings → Pages → Source debe estar en GitHub Actions. Se mantienen los permisos mínimos de Pages y el entorno `github-pages`.
 
-## Activación inicial
+Para previsualizar:
 
-Después de crear y subir el repositorio público `artfisica/acfiman-open-science-papers`,
-activa Pages antes de subir este cambio:
-
-```sh
-gh api --method POST repos/artfisica/acfiman-open-science-papers/pages -f build_type=workflow
-```
-
-Si Pages ya estaba activado, utiliza `--method PUT` en lugar de POST para seleccionar
-GitHub Actions como origen. Alternativa: Settings → Pages → Build and deployment
-→ Source → GitHub Actions. El workflow necesita permiso para escribir contenidos;
-las reglas de protección que prohíban el push del bot impedirán la actualización
-original de los PDF y, por dependencia, el despliegue.
-
-Consulta la dirección real con:
-
-```sh
-gh api repos/artfisica/acfiman-open-science-papers/pages --jq .html_url
-```
-
-La dirección habitual es https://artfisica.github.io/acfiman-open-science-papers/.
-Los enlaces relativos también funcionan bajo la ruta de un proyecto.
-
-## Actualizaciones
-
-1. Edita los manuscritos y sube los cambios a `main`.
-2. `build` compila los PDF, comprueba sus hashes y prepara `_site/`.
-3. `publish` guarda los PDF en sus rutas habituales del repositorio.
-4. `deploy-pages` publica exactamente los PDF del mismo build.
-
-No depende de que el commit automático dispare otro workflow. Las pull requests
-validan y compilan, pero no publican. Los cambios exclusivamente en Markdown o en
-los PDF siguen las exclusiones del workflow original; para publicarlos usa el
-botón Run workflow o `gh workflow run papers.yml`. Si avanza la rama antes de que
-el bot publique, la comprobación existente detiene ese build; el siguiente build
-puede publicar la revisión más reciente. No se fuerza ningún push.
-
-Cada URL PDF muestra la versión vigente. Git conserva su historial habitual;
-el sitio no crea una colección de versiones. La caché del navegador puede requerir
-una recarga para mostrar un PDF recién actualizado.
-
-## Previsualización local
-
-Con Python 3 y los PDF ya presentes (no necesitas LaTeX para esta vista):
-
-```sh
-python3 scripts/build_pages.py
+```bash
+make pages
 python3 -m http.server 8000 --directory _site
 ```
 
-Abre http://localhost:8000. Para recompilar primero los manuscritos usa `make all`
-en Codespaces. `_site/` es temporal y no se añade a Git. Edita textos/estructura en
-`web/index.html`, estilos en `web/styles.css` y selección de manuscrito en
-`web/app.js`. Si cambias títulos o autores, actualiza tanto HTML como JavaScript.
+Abrir http://localhost:8000. El portal carga `papers.json` generado desde los metadatos comunes, verifica manifiestos y muestra revisión, fecha de fuentes y hash PDF. Los títulos y autores se editan solo en `papers.json` de la raíz; no en HTML ni JavaScript.
 
-En navegadores móviles que no soporten el visor integrado, los enlaces Abrir PDF
-y Descargar dan acceso al documento completo. Sin JavaScript hay enlaces a ambos
-PDF. Para compartir la selección usa `#comunidades` o `#computacion`.
+Los borradores incluyen `noindex, nofollow`. Esto solicita a los buscadores que no los indexen; no restringe el acceso público ni elimina copias existentes. En pantallas de hasta 800 px se oculta el visor integrado; «Abrir PDF» es la acción principal. Sin JavaScript quedan enlaces directos a ambos PDF. El diseño se mantiene en `web/`; el HTML es una plantilla que se sirve tras ejecutar el generador.

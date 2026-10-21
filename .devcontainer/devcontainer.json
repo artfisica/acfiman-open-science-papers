@@ -1,7 +1,6 @@
 {
-  "name": "ACFIMAN papers — LaTeX",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
-  "postCreateCommand": "bash scripts/install-tex.sh",
+  "name": "ACFIMAN papers \u2014 LaTeX",
+  "image": "ghcr.io/xu-cheng/texlive-debian@sha256:78ac2204b8df113aca0561e8f173ad5b89ee51e90795173d2fe9bcf0fbce162e",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,5 +11,9 @@
         "latex-workshop.view.pdf.viewer": "tab"
       }
     }
-  }
+  },
+  "containerEnv": {
+    "PAPERS_RUNTIME": "ghcr.io/xu-cheng/texlive-debian@sha256:78ac2204b8df113aca0561e8f173ad5b89ee51e90795173d2fe9bcf0fbce162e"
+  },
+  "remoteUser": "root"
 }

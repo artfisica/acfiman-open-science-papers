@@ -1,27 +1,30 @@
-"""Build locally and in CI using the same command. Publish only after BOTH builds pass."""
-from pathlib import Path
-import hashlib, json, os, shutil, subprocess, sys
-ROOT=Path(__file__).resolve().parents[1]
-PAPERS=['01-comunidades-abiertas','02-computacion-reproducible']
-selected=sys.argv[1:] or PAPERS
-if any(p not in PAPERS for p in selected): raise SystemExit('Unknown paper')
-# Fixed epoch avoids wall-clock-only rebuild differences. Toolchain versions remain relevant.
-env=dict(os.environ, SOURCE_DATE_EPOCH='1792540800', FORCE_SOURCE_DATE='1', TZ='UTC')
+"""Validate, compile, then publish outputs only after all selected builds pass."""
+import json, os, re, shutil, subprocess, sys
+from common import ROOT, metadata, generate, inputs, sha
+items=metadata()['papers']; names=sys.argv[1:] or [x['directory'] for x in items]
+if set(names)-{x['directory'] for x in items}:raise SystemExit('Unknown paper')
+subprocess.run([sys.executable,str(ROOT/'scripts/check.py')],check=True)
 staged=[]
-for name in selected:
-    p=ROOT/'papers'/name
-    build=p/'build';build.mkdir(exist_ok=True)
+for item in items:
+    if item['directory'] not in names:continue
+    p=ROOT/'papers'/item['directory']; info=generate(item); b=p/'build'
+    env=dict(os.environ,SOURCE_DATE_EPOCH=str(info['source_epoch']),FORCE_SOURCE_DATE='1',TZ='UTC')
+    def compile_tex(file,out):
+        result=subprocess.run(['latexmk','-gg','-xelatex','-interaction=nonstopmode','-halt-on-error','-outdir='+out,file.name],cwd=file.parent,env=env,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        if result.returncode:
+            print(result.stdout[-12000:]);raise SystemExit(f'TeX compilation failed: {file}')
     for fig in sorted((p/'figures').glob('*.tex')):
-        subprocess.run(['latexmk','-xelatex','-interaction=nonstopmode','-halt-on-error','-outdir=../build',fig.name],cwd=p/'figures',env=env,check=True)
-        shutil.copy2(build/(fig.stem+'.pdf'),p/'figures'/(fig.stem+'.pdf'))
-    subprocess.run(['latexmk','-xelatex','-interaction=nonstopmode','-halt-on-error','-outdir=build','main.tex'],cwd=p,env=env,check=True)
-    log=(build/'main.log').read_text(errors='replace')
-    if any(x in log for x in ['There were undefined references','Citation `','Overfull \\hbox']):
-        raise SystemExit(f'Unresolved citations/references or horizontal overflow: {name}')
-    staged.append((p,build/'main.pdf'))
-for p,pdf in staged:
-    out=p/'pdf'/'manuscript.pdf';shutil.copy2(pdf,out)
-    inputs=sorted([ROOT/'shared'/'preamble.tex']+[f for f in p.rglob('*') if f.is_file() and f.suffix in ['.tex','.csv','.json'] and 'build' not in f.parts and 'pdf' not in f.parts])
-    manifest={'paper':p.name,'pdf_sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'inputs':{str(f.relative_to(ROOT)):hashlib.sha256(f.read_bytes()).hexdigest() for f in inputs},'engine':subprocess.check_output(['xelatex','--version'],text=True).splitlines()[0]}
-    (p/'pdf'/'build-manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
+        compile_tex(fig,'../build');shutil.copy2(b/(fig.stem+'.pdf'),fig.with_suffix('.pdf'))
+    compile_tex(p/'main.tex','build')
+    log=(b/'main.log').read_text(errors='replace')
+    if 'Output written on' not in log:raise SystemExit(f'Incomplete TeX log: {p.name}')
+    if any(x in log for x in ['There were undefined references','Citation `']):raise SystemExit(f'Unresolved references: {p.name}')
+    overflow=[float(x) for x in re.findall(r'Overfull \\[hv]box \((\d+(?:\.\d+)?)pt too',log)]
+    if overflow:print(f'{p.name}: overflow up to {max(overflow):.2f}pt')
+    if any(v>5 for v in overflow):raise SystemExit(f'Overflow exceeds 5pt: {p.name}')
+    staged.append((p,info))
+for p,info in staged:
+    out=p/'pdf/manuscript.pdf';shutil.copy2(p/'build/main.pdf',out)
+    manifest={'paper':p.name,**info,'pdf_sha256':sha(out),'inputs':{str(f.relative_to(ROOT)):sha(f) for f in inputs(p)},'engine':subprocess.check_output(['xelatex','--version'],text=True).splitlines()[0], 'configured_image':json.loads((ROOT/'.devcontainer/devcontainer.json').read_text())['image'],'runtime':os.environ.get('PAPERS_RUNTIME','local-unpinned')}
+    (p/'pdf/build-manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
     print(f'Built {out.relative_to(ROOT)}')

@@ -1,4 +1,7 @@
 # Derechos y reutilización
-Este paquete no aplica una licencia global a los manuscritos, resúmenes ni materiales de los autores. Publicar en GitHub no equivale a conceder una licencia abierta. Los autores deben acordar las condiciones de reutilización antes de etiquetar el proyecto como recurso abierto reutilizable.
 
-Propuesta para decidir, no licencia concedida: CC BY 4.0 para textos/figuras originales y MIT para scripts/configuración. Materiales de terceros conservan sus condiciones. Se enlazan las publicaciones previas; no se redistribuyen sus PDF ni fotografías.
+El código de `scripts/`, `web/`, `Makefile`, `.github/`, `.devcontainer/` y la configuración del editor se distribuye bajo MIT, según `LICENSE-CODE`.
+
+Los manuscritos, sus figuras y sus tablas conservan todos los derechos de sus autores mientras se acuerda una licencia de publicación. Su disponibilidad pública como borradores no concede automáticamente derechos de adaptación o redistribución. Los materiales y publicaciones de terceros mantienen sus propias condiciones; las licencias de recursos citados no se heredan en este repositorio.
+
+`CITATION.cff` identifica el software editorial. Para citar un manuscrito, utilizar su título, autores y la revisión de fuentes indicada en el manifiesto, junto con el enlace al PDF o al commit correspondiente. No hay DOI ni aceptación editorial declarados para estos ensayos.

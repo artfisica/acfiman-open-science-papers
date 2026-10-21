@@ -1,10 +1,15 @@
 id,claim,source,status,notes
-C01,"CoAfina 2023: 78 estudiantes,16 equipos,30 universidades,8 países",https://www.software.ac.uk/blog/hackathon-co-afina-2023-latin-american-students-drive-innovation-open-data,verified,Informe de organizadores; no medida de aprendizaje
-C02,"Salud para todos:45 inscritos,19 activos,22 artículos",https://doi.org/10.37527/2026.76.1.006,verified,Resultados publicados previamente; citar sin reclamar novedad
-C03,ATLAS Open Data en tesis venezolanas,https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data,verified,Relato institucional de casos; no seguimiento de cohorte
-C04,CoAfina 2022:50 y 2025:90;50 universidades y15 países,sources/accepted-abstract.md,pending,Precisar año y alcance de los totales antes de incorporarlos al cuerpo
-C05,Todos los materiales CoAfina bajo CC0,https://github.com/laa-hecap/CoAfina-resources,pending,Revisar licencias por archivo y dependencias; README no recuperado
-C06,ICTP-PWF honored School of Physics,sources/accepted-abstract.md,pending,Identificar evento exacto; no equiparar sin evidencia con otra escuela PWF
-C07,Continuidad y aprendizaje causales,sources/accepted-abstract.md,pending,No medidos; no se afirman en el manuscrito
-C09,OpenGLAM anunció una conferencia de Arturo Sánchez para el 27 de abril de 2020,https://openglam.at/arturo_sanchez/,verified,Programa del evento; no evaluación de resultados
-C10,"HSF/IRIS-HEP distingue instructores, mentores y facilitadores",https://doi.org/10.1007/s41781-021-00069-9,verified,Antecedente organizativo; no resultado de los casos locales
+C01,Participación y cooperación como componentes de ciencia abierta,https://www.unesco.org/en/legal-affairs/recommendation-open-science,verified,Fuente documental; alcance delimitado en el texto.
+C02,Aprendizaje mediante participación en prácticas compartidas,https://doi.org/10.1017/CBO9780511803932,verified,Fuente documental; alcance delimitado en el texto.
+C03,Límites de la evaluación de aprendizaje en hackatones,https://doi.org/10.1007/s10639-024-12668-1,verified,Fuente documental; alcance delimitado en el texto.
+C04,"CoAfina 2023: 78 estudiantes, 16 equipos, 30 universidades y ocho países",https://www.software.ac.uk/blog/hackathon-co-afina-2023-latin-american-students-drive-innovation-open-data,verified,Fuente documental; alcance delimitado en el texto.
+C05,Convocatoria de la tercera edición para 19–21 de julio de 2024,https://laconga.redclara.net/en/coafina-returns-the-latin-american-hackathon-focused-on-open-data/,verified,Fuente documental; alcance delimitado en el texto.
+C06,Convocatoria indexada de CoAfina 2025,https://laconga.redclara.net/hackathon/,pending,Convocatoria indexada; recuperar registro histórico estable de 2025 antes del envío.
+C07,Demostraciones públicas y retorno de un participante como proponente,https://laconga.redclara.net/en/latin-american-students-develop-innovative-solutions-with-open-data-at-co-afina-2023/,verified,Fuente documental; alcance delimitado en el texto.
+C08,"Resultados 2021, reconocimiento OMS y apoyo institucional según artículo 2026",https://doi.org/10.37527/2026.76.1.006,verified,Datos de 2021 y premio según publicación; fecha del seguimiento discrepa del anuncio Cornell 2023.
+C09,Anuncio de Editathon V2 para 13–16 de febrero de 2023,https://buttondown.com/cornell_pin/archive/news-from-the-program-in-international-nutrition-4959/,verified,Fuente documental; alcance delimitado en el texto.
+C10,Participación experta y calidad de fuentes en Wikipedia sanitaria,https://doi.org/10.2196/jmir.1589,verified,Fuente documental; alcance delimitado en el texto.
+C11,Tesis venezolanas y formación con ATLAS Open Data,https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data,verified,Fuente documental; alcance delimitado en el texto.
+C12,Conferencia OpenGLAM sobre datos abiertos y competencias computacionales,https://openglam.at/arturo_sanchez/,verified,Fuente documental; alcance delimitado en el texto.
+C13,Organización de competencias y funciones docentes HSF/IRIS-HEP,https://doi.org/10.1007/s41781-021-00069-9; https://arxiv.org/abs/2103.00659,verified,Fuente documental; alcance delimitado en el texto.
+C14,CC0 como dedicación al dominio público,https://creativecommons.org/public-domain/,verified,Fuente documental; alcance delimitado en el texto.
