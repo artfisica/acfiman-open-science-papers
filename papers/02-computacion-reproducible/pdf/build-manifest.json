@@ -1,6 +1,6 @@
 {
   "paper": "02-computacion-reproducible",
-  "pdf_sha256": "b37851650e236859924f67f29304e2f3a0fed4afbd7f723a052a3b8ce33ad579",
+  "pdf_sha256": "377e6bc85230bf7835064aee6d7d2e5d1164d394b1cbfc8bcf177f230aef995d",
   "inputs": {
     "papers/02-computacion-reproducible/data/evidence.csv": "2a105b2e7d8fd92f5d7fa8dfc74f4855e4fd1f3881aed70da38d00b5f4e5f222",
     "papers/02-computacion-reproducible/figures/modelo.tex": "1a5815a391e85bacdb44afd3736bc22afa22a7af56fdac0caaa9e7e8b5215ceb",

@@ -1,6 +1,6 @@
 {
   "paper": "01-comunidades-abiertas",
-  "pdf_sha256": "7b72322231c046b113991e7280b49cd12b5ca4b0788ed411d5ef75fad0776c12",
+  "pdf_sha256": "8413c2b3373bead529ca1a9478bb57f5cefd07c7c03828d35d4aa27089e5294a",
   "inputs": {
     "papers/01-comunidades-abiertas/data/evidence.csv": "fb340c6466b50a32f3da60ba867d078b9e1ce97750f6367bdf84449dce9e672b",
     "papers/01-comunidades-abiertas/figures/modelo.tex": "bf5f5412cd36216b9016442efc2045a863eaaa7c88f7ac5aab04d2b934076a39",
