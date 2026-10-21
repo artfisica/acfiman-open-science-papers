@@ -1,0 +1,11 @@
+# ICHEP 2026 — Abstract 667
+
+Title: Automated, reproducible cloud workspaces for HEP training in Latin America with cloud-based Git Codespaces and CI
+Authors: Arturo Sánchez Pineda
+Status in screenshot: Accepted as Talk.
+Source: https://indico.cern.ch/event/1522800/abstracts/201558/
+Screenshot filename dated 2026-03-14, supplied by authors in Photos-indico-ichep.zip on 2026-10-21. Transcription from visible text; line breaks normalized. Historical wording retained even where terminology or evidence needs refinement. The screenshot precedes the later withdrawal reported by the authors.
+
+Hands-on HEP computing schools in Latin America frequently face heterogeneous participant laptops and installation constraints that reduce training time and increase support load. We present an approach using GitHub Codespaces and devcontainer-defined environments that provides browser-accessible, preconfigured workspaces (Jupyter + tooling) and uniform software stacks, allowing immediate analysis work rather than troubleshooting. The method is implemented through open repositories in the LAA-HECAP GitHub organization (github.com/laa-hecap), including template environments (jupyter-on-codespaces) and exercise sets (exercises-silafae) with devcontainers and automation hooks. Training materials explicitly integrate professional workflows—version control and automated execution—via GitHub Actions and GitLab CI/CD. Workflows include analysis pipelines such as "Process ATLAS ROOT Open Data." The infrastructure is platform-agnostic, supporting both GitHub and GitLab for institutional flexibility.
+
+We report on deployment during a workshop at SILAFAE XV (Nov 2024), engaging participants in large-scale data analysis using open scientific data and cloud-based collaborative tooling (GitHub, GitLab, GitHub Actions, notebooks). We discuss the successful deployment and scaling toward larger schools, including CERN School of Computing - Latin America 2026 in Santiago, Chile (Jan 11-24, 2026), where reproducible cloud workspaces reduced setup friction while teaching modern collaborative software practices. This process integrated a multi-day school setup with 80 students in less than 10 minutes.

@@ -1,0 +1,10 @@
+id,claim,source,status,notes
+T01,Despliegue SILAFAE XV noviembre2024,sources/accepted-abstract.md,author_report,"Recuperar commit,programa y registros del taller"
+T02,CSC Santiago 11-24enero2026,https://indico.cern.ch/event/1551289/timetable/?view=standard_numbered,verified,Programa institucional; no valida velocidad ni denominador
+T03,80 estudiantes en menos de10 minutos,sources/accepted-abstract.md,author_report,"Definir intervalo,preparación previa,denominador y logs"
+T04,GitLab y GitHub en despliegues,sources/accepted-abstract.md,author_report,Recuperar configuraciones y pruebas por plataforma
+T05,Repositorios de ejercicios existentes,https://github.com/laa-hecap/jupyter-on-codespaces;https://github.com/laa-hecap/exercises-silafae,verified,README consultado; no acredita ejecución histórica
+T06,Antecedentes transversales2021/2024,https://arxiv.org/abs/2104.09622;https://zenodo.org/records/13324266,verified,Propuestas y antecedentes; distinguir de medición
+T07,CHEP2021 artículo,https://doi.org/10.1051/epjconf/202125101008,pending,Metadatos en SOURCES.md; revisar original antes de envío
+T08,Mejora de aprendizaje,sources/accepted-abstract.md,pending,No evaluada; se propone protocolo
+T09,Flujo remoto del repositorio nuevo,../../docs/VALIDATION.md,pending,Compilación local verificada; primera ejecución GitHub pendiente

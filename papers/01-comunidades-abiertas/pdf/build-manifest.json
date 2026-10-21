@@ -1,0 +1,20 @@
+{
+  "paper": "01-comunidades-abiertas",
+  "pdf_sha256": "7b72322231c046b113991e7280b49cd12b5ca4b0788ed411d5ef75fad0776c12",
+  "inputs": {
+    "papers/01-comunidades-abiertas/data/evidence.csv": "fb340c6466b50a32f3da60ba867d078b9e1ce97750f6367bdf84449dce9e672b",
+    "papers/01-comunidades-abiertas/figures/modelo.tex": "bf5f5412cd36216b9016442efc2045a863eaaa7c88f7ac5aab04d2b934076a39",
+    "papers/01-comunidades-abiertas/main.tex": "a9e38df8033261d82a088dd1c4ea41172ca9b1e7ca8c76d33746a230ae9f1665",
+    "papers/01-comunidades-abiertas/references.tex": "26ac1b62466a97c7f568e50125624861082f955ae1f39e8be16d5be53040bc26",
+    "papers/01-comunidades-abiertas/text/01-introduccion.tex": "66ab59819fa8d7d26a7316be3e9527c2e76cf902693cf9c6ad89ec8634265938",
+    "papers/01-comunidades-abiertas/text/02-metodo.tex": "1c303b3a308f3cfd7857e9f271b7a17b1a6e240b610dbba496058a23b71fe74f",
+    "papers/01-comunidades-abiertas/text/03-casos.tex": "6c24b0eafa61f3799f916d0480172127b6219dc750313d3f28678dc9cd3e7f03",
+    "papers/01-comunidades-abiertas/text/04-modelo.tex": "809193567e5768ad08de209708bec4dc1e78acea30a223f83580c0d15d1d549c",
+    "papers/01-comunidades-abiertas/text/05-discusion.tex": "b86610e4b34e80b5b27f93826042fbcd8ef9f876773a480de25ff48636678cc6",
+    "papers/01-comunidades-abiertas/text/06-conclusiones.tex": "e918ca6d6eaaa5dfc045b486282548a99cac034fd37acb9ce2461e7af58b2406",
+    "papers/01-comunidades-abiertas/text/abstract-en.tex": "ec21fa26d19119edad3879c55ea9f362fe5d02c46346010baa19ebe338e3a818",
+    "papers/01-comunidades-abiertas/text/abstract-es.tex": "e32f7754fe380625270d5bb4ab544921fedbb50ecc68700de9cfbd898db78e75",
+    "shared/preamble.tex": "f7614ad1ce6ada581494482dc0a95a6f04447e02a46d104a1308c956ef2763f6"
+  },
+  "engine": "XeTeX 3.141592653-2.6-0.999995 (TeX Live 2023/Debian)"
+}

@@ -1,0 +1,17 @@
+\documentclass[border=4mm]{standalone}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Sans}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[>=Stealth,box/.style={draw,rounded corners=2pt,align=center,text width=38mm,minimum height=14mm,font=\small},every edge/.style={draw,->}]
+
+\node[box] (task) at (0,0) {Pregunta compartida\\y tarea realizable};
+\node[box] (work) at (5,0) {Contribución\\y tutoría};
+\node[box] (review) at (10,0) {Revisión\\y reconocimiento};
+\node[box] (reuse) at (10,-2.5) {Conservación\\y reutilización};
+\node[box] (next) at (0,-2.5) {Nuevas tareas\\y participantes};
+\path (task) edge (work) (work) edge[bend left=15] (review) (review) edge[bend left=15] (work) (review) edge (reuse) (reuse) edge (next) (next) edge (task);
+\node[align=center,font=\small,text width=40mm] at (5,-1.5) {Fuentes, licencias\\y responsabilidades\\explícitas};
+\end{tikzpicture}
+\end{document}

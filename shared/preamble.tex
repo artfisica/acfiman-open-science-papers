@@ -1,0 +1,24 @@
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}[Scale=0.85]
+\usepackage{polyglossia}
+\setdefaultlanguage{spanish}
+\setotherlanguage{english}
+\usepackage[letterpaper,margin=27mm]{geometry}
+\usepackage{microtype,graphicx,booktabs,tabularx,amsmath}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{xurl}
+\setcounter{secnumdepth}{3}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\paragraph}[runin]{\normalsize\itshape}{}{0pt}{}[.]
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{1em}
+\setlength{\emergencystretch}{2em}
+\setlist{nosep}
+\newcommand{\draftnotice}{\begin{center}\small\textsf{BORRADOR PARA REVISIÓN DE AUTORES · 21 de octubre de 2026}\end{center}}
+\newcommand{\authorpending}{\begin{center}\small Afiliaciones y direcciones postales: pendientes de validación.\\Autor de correspondencia propuesto: Arturo Sánchez Pineda.\end{center}}

@@ -1,0 +1,21 @@
+{
+  "paper": "02-computacion-reproducible",
+  "pdf_sha256": "b37851650e236859924f67f29304e2f3a0fed4afbd7f723a052a3b8ce33ad579",
+  "inputs": {
+    "papers/02-computacion-reproducible/data/evidence.csv": "2a105b2e7d8fd92f5d7fa8dfc74f4855e4fd1f3881aed70da38d00b5f4e5f222",
+    "papers/02-computacion-reproducible/figures/modelo.tex": "1a5815a391e85bacdb44afd3736bc22afa22a7af56fdac0caaa9e7e8b5215ceb",
+    "papers/02-computacion-reproducible/main.tex": "e03068d8fb27901e4e8d03e06903b2fe3df021fd351daa98e946fa31c46fdd35",
+    "papers/02-computacion-reproducible/references.tex": "b53650c047a11b168774d476a848da19aa01273b92465bead0398d4d1908c09d",
+    "papers/02-computacion-reproducible/text/01-introduccion.tex": "138a18d93f13632a5cd94dbc2969525673e017a8f93ff9101f5f70c29200eb7a",
+    "papers/02-computacion-reproducible/text/02-antecedentes.tex": "0f99d7fc21c9581017ba670d49b7b4124646687d9dfa250491bd8074525dbd3d",
+    "papers/02-computacion-reproducible/text/03-arquitectura.tex": "56f2338d06b6db545e7839999170ad44b433fed9e270208d576abff1d5ca35db",
+    "papers/02-computacion-reproducible/text/04-experiencias.tex": "5d7607928723497f7fe75b4cabf79c5eaa34861b944b680d144db2c6d487b51d",
+    "papers/02-computacion-reproducible/text/05-evaluacion.tex": "3e6ad672910de97da03732bf2496e35da76ada970b9fc3a427e4ff566d649ef7",
+    "papers/02-computacion-reproducible/text/06-demostrador.tex": "a381940bd80f30df9a1de0d3bf75b2446c0c648c093eb55316e4139d111b2009",
+    "papers/02-computacion-reproducible/text/07-discusion.tex": "4fad4e3e40cbba98a24794345d171805efd066bda1aede287dc6c07b49b1a199",
+    "papers/02-computacion-reproducible/text/abstract-en.tex": "5ed265325f612ea60da97204bca8a9ea81f64ca1e1b7c7c023aebd2a5b8babdf",
+    "papers/02-computacion-reproducible/text/abstract-es.tex": "db4407af76246327e80358b5dc0326db3e3b70a7c65661f83d55622373a8ac98",
+    "shared/preamble.tex": "f7614ad1ce6ada581494482dc0a95a6f04447e02a46d104a1308c956ef2763f6"
+  },
+  "engine": "XeTeX 3.141592653-2.6-0.999995 (TeX Live 2023/Debian)"
+}

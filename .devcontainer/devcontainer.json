@@ -1,0 +1,16 @@
+{
+  "name": "ACFIMAN papers — LaTeX",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "postCreateCommand": "bash scripts/install-tex.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop"
+      ],
+      "settings": {
+        "latex-workshop.latex.autoBuild.run": "never",
+        "latex-workshop.view.pdf.viewer": "tab"
+      }
+    }
+  }
+}

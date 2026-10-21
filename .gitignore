@@ -1,0 +1,13 @@
+**/build/
+**/__pycache__/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+.venv/
+dist/
+.DS_Store
+# PDFs in papers/*/pdf and figures are deliberately tracked.

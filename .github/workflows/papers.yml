@@ -1,0 +1,72 @@
+name: Build and update papers
+on:
+  push:
+    paths-ignore:
+      - 'papers/*/pdf/**'
+      - 'papers/*/figures/*.pdf'
+      - '**.md'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: papers-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install LaTeX
+        run: bash scripts/install-tex.sh
+      - name: Validate and compile
+        run: make all
+      - uses: actions/upload-artifact@v4
+        with:
+          name: compiled-papers
+          path: |
+            papers/*/pdf/*.pdf
+            papers/*/pdf/*.json
+            papers/*/figures/*.pdf
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - name: Refuse to publish a stale build
+        env:
+          BUILT_SHA: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$BUILT_SHA" || {
+            echo 'Default branch advanced. Run this workflow again on the latest revision.'
+            exit 1
+          }
+      - uses: actions/download-artifact@v4
+        with:
+          name: compiled-papers
+          path: papers
+      - name: Commit current PDFs
+        env:
+          TARGET_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add papers/*/pdf/manuscript.pdf papers/*/pdf/build-manifest.json papers/*/figures/*.pdf
+          if git diff --cached --quiet; then
+            echo 'PDFs are already current.'
+            exit 0
+          fi
+          git commit -m 'docs: update compiled manuscripts'
+          git push origin "HEAD:$TARGET_BRANCH"

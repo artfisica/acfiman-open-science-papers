@@ -1,0 +1,2 @@
+# Datos y evidencia
+`evidence.csv` es un registro de afirmaciones y procedencia, no una base de microdatos. `verified` significa comprobado en la fuente indicada; no implica auditoría independiente del dato original. `author_report` identifica resultados comunicados en el resumen aceptado. `pending` identifica elementos sin documentación suficiente. No hay datos personales ni observaciones inventadas. Actualizar estado y fuente al resolver cada pendiente; conservar diferencias entre inscripción, participación activa y aprendizaje.
