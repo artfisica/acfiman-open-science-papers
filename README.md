@@ -43,3 +43,10 @@ Cambiar una frase del resumen, ejecutar `make all`, abrir el PDF y revisar `git 
 Las cifras pendientes se identifican en el texto y en cada `data/evidence.csv`. No hay registros inventados de alumnos ni resultados simulados presentados como mediciones. [Revisión editorial](docs/EDITORIAL.md), [derechos](RIGHTS.md) y [validación](docs/VALIDATION.md).
 
 Este ZIP prepara un repositorio nuevo; no modifica los repositorios de contexto ni crea uno remoto. Las configuraciones de entorno fijan Ubuntu 24.04 y la familia de acciones v4, pero apt y las etiquetas no son inmutables: la repetibilidad funcional no promete identidad binaria entre futuras versiones de TeX. El manifiesto conserva el motor y hashes de fuentes/salida.
+
+## Portal de lectura / GitHub Pages
+
+El portal permite seleccionar, leer y descargar ambos manuscritos. Consulta
+[docs/PAGES.md](docs/PAGES.md) para activarlo y previsualizarlo. Los archivos de
+`web/` definen el diseño; `scripts/build_pages.py` copia los PDF verificados.
+El mismo workflow compila, actualiza los PDF del repositorio y despliega el portal.

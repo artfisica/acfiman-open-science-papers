@@ -11,3 +11,6 @@
 dist/
 .DS_Store
 # PDFs in papers/*/pdf and figures are deliberately tracked.
+
+# Generated GitHub Pages deployment bundle.
+_site/
