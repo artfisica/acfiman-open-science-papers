@@ -14,18 +14,31 @@ def inputs(p):
     files += [f for f in p.rglob('*.tex') if 'build' not in f.relative_to(p).parts]
     if (p/'data/coafina-editions.csv').exists(): files.append(p/'data/coafina-editions.csv')
     # evidence.csv is editorial bookkeeping, not a typeset input.
-    return sorted(set(files))
+    return sorted(set(files) | set(source_inputs(p)))
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+def source_inputs(p):
+    # Editorial data are tracked even when not yet typeset. Generated PDFs are outputs.
+    return sorted({ROOT/'papers.json', *[f for f in p.rglob('*')
+        if f.is_file() and 'build' not in f.relative_to(p).parts
+        and (f.suffix == '.tex' or ('data' in f.relative_to(p).parts and f.name != 'evidence.csv'))]})
+def runtime_image():
+    config=json.loads((ROOT/'.devcontainer/devcontainer.json').read_text())
+    return config.get('image') or config['build']['args']['TEX_IMAGE']
 def provenance(p):
     if subprocess.check_output(['git','rev-parse','--is-shallow-repository'],cwd=ROOT,text=True).strip()=='true':
         raise SystemExit('Full source history required: run git fetch --unshallow origin.')
-    paths = [str(f.relative_to(ROOT)) for f in inputs(p)]
-    result = subprocess.check_output(['git','log','-1','--format=%H %ct','--',*paths],cwd=ROOT,text=True).strip()
-    if not result: raise SystemExit('A source commit is required to build.')
-    commit, epoch = result.split()
-    dirty = bool(subprocess.check_output(['git','status','--porcelain','--',*paths],cwd=ROOT,text=True).strip())
-    return {'source_commit':commit,'source_date':datetime.datetime.fromtimestamp(int(epoch),datetime.timezone.utc).date().isoformat(),'source_epoch':int(epoch),'source_dirty':dirty}
+    info={}
+    source=source_inputs(p)
+    build=sorted(set(inputs(p))-set(source))
+    for kind, files in [('source',source),('build',build)]:
+        paths=[str(f.relative_to(ROOT)) for f in files]
+        result=subprocess.check_output(['git','log','-1','--format=%H %ct','--',*paths],cwd=ROOT,text=True).strip()
+        if not result: raise SystemExit('A committed history is required to build.')
+        commit,epoch=result.split()
+        dirty=bool(subprocess.check_output(['git','status','--porcelain','--',*paths],cwd=ROOT,text=True).strip())
+        info.update({kind+'_commit':commit,kind+'_date':datetime.datetime.fromtimestamp(int(epoch),datetime.timezone.utc).date().isoformat(),kind+'_epoch':int(epoch),kind+'_dirty':dirty})
+    return info
 def generate(item):
     p=ROOT/'papers'/item['directory']; b=p/'build'; b.mkdir(exist_ok=True)
     info=provenance(p); m=metadata(); used=list(dict.fromkeys(a for x in item['authors'] for a in x['affiliations']))
@@ -49,14 +62,6 @@ def generate(item):
        r'\par\vspace{0.4em}{\small '+r'\\'.join(affiliations)+r'}\par\small Correspondencia: '+contact+
        r'\end{center}}'+'\n')
     (b/'metadata.tex').write_text(s)
-    editions=p/'data/coafina-editions.csv'
-    if editions.exists():
-        rows=list(csv.DictReader(editions.open()))
-        body=r'\begin{tabularx}{160mm}{@{}l*{6}{>{\centering\arraybackslash}X}@{}}\toprule'+'\n'
-        body+=r'Año & Reportados & Inscritos & Activos & Finalizan & Países & Universidades \\'+'\n'
-        for row in rows:
-            body+=' & '.join(tex(row[k]) for k in ['edition','reported_students','registered','active','completed','countries','universities'])+r' \\'+'\n'
-        (b/'ediciones-body.tex').write_text(body+r'\bottomrule\end{tabularx}'+'\n')
     return info
 
 def expand(path, paper=None, stack=()):

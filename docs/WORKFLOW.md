@@ -9,7 +9,7 @@
 
 ## Procedencia
 
-`SOURCE_DATE_EPOCH` y el banner proceden del último commit que afecta a entradas de compilación. Un commit del bot que solo guarda salidas no cambia esa revisión. Los manifiestos incluyen hashes de fuentes, scripts y configuración; la tabla CoAfina incluye su CSV. El ledger editorial `evidence.csv` no se presenta como entrada de LaTeX. El motor real y el entorno declarado se registran por separado. Fijar una imagen reduce variación de herramientas, pero no garantiza por sí solo igualdad binaria en cualquier arquitectura.
+El banner y el portal muestran `source_commit` y `source_date`: último commit de texto, metadatos, datos o fuentes de figuras del artículo. `build_commit` y `build_date` identifican scripts, preámbulo y configuración de compilación. `SOURCE_DATE_EPOCH` usa el mayor de ambos tiempos. Un commit del bot que solo guarda salidas no cambia esa revisión. Los manifiestos incluyen hashes de fuentes, scripts y configuración; la hoja de trabajo CoAfina incluye su CSV. El ledger editorial `evidence.csv` no se presenta como entrada de LaTeX. El motor real y el entorno declarado se registran por separado. Fijar una imagen reduce variación de herramientas, pero no garantiza por sí solo igualdad binaria en cualquier arquitectura.
 
 Las fechas mostradas son fechas de **revisión de las fuentes**, no hora de descarga ni fecha de publicación editorial. Los cambios locales se marcan. Para actualizar el contenedor, revisar el nuevo digest y cambiarlo simultáneamente en workflow y Codespaces; `make check` comprueba esa igualdad. La imagen Debian elegida incluye Git, Python, Make y TeX Live; no se ejecuta instalación apt en CI.
 
@@ -20,3 +20,7 @@ Se comprueban longitud de resúmenes, orden y resolución de citas, etiquetas re
 ## Hitos opcionales
 
 Los commits de PDF se mantienen. Para un hito revisado puede añadirse un tag y una Release, sin cambiar las rutas actuales. Antes de crearla, copiar los dos PDF a nombres distintos (`comunidades.pdf` y `computacion.pdf`) para evitar colisiones de assets, acompañados de sus manifiestos. No publicar una Release ni activar archivo externo hasta elegir el hito y revisar su contenido. El hash y la revisión del portal permiten identificar también borradores intermedios.
+
+Codespaces construye una capa mínima sobre la misma imagen TeX fijada por digest que CI; añade el usuario no privilegiado `vscode`. No instala ni actualiza paquetes TeX. La validación estática verifica el digest común; la reconstrucción del contenedor debe comprobarse en Codespaces.
+
+Los pendientes explícitos del texto usan `\editorialtodo{...}`. Expresiones legítimas como «pendiente de evaluación» no bloquean el envío. Cada URL de LA-CoNGA citada requiere en la misma entrada bibliográfica un enlace Wayback con fecha de captura completa; el modo borrador avisa y el modo estricto bloquea si falta. Este control sintáctico no sustituye la revisión del contenido archivado.

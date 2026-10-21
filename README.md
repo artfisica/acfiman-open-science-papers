@@ -13,7 +13,7 @@ Dos ensayos en preparación, mantenidos públicamente con fuentes LaTeX, datos d
 
 Abrir el repositorio en Codespaces. CI y Codespaces utilizan la misma imagen TeX Live fijada por digest; la primera descarga puede tardar. No se reinstala TeX con apt en cada sesión. La imagen es Linux amd64.
 
-Editar `papers/<artículo>/text/`, `references.tex`, `tables/` o `figures/`. Títulos, autores, afiliaciones y estado se editan **solo en `papers.json`**. Los archivos `build/metadata.tex` y `build/ediciones-body.tex` se generan automáticamente.
+Editar `papers/<artículo>/text/`, `references.tex`, `tables/` o `figures/`. Títulos, autores, afiliaciones y estado se editan **solo en `papers.json`**. El archivo `build/metadata.tex` se genera automáticamente. La hoja `data/coafina-editions.csv` conserva la extracción por completar y no se presenta como resultado del ensayo.
 
 ```bash
 make all             # validar y compilar ambos

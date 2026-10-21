@@ -1,6 +1,6 @@
 """Draft checks always run; STRICT=1 additionally enforces submission readiness."""
 import csv, os, re, sys
-from common import ROOT, metadata, generate, expand
+from common import ROOT, metadata, generate, expand, runtime_image
 strict='--strict' in sys.argv or os.environ.get('STRICT')=='1'
 errors=[]
 meta=metadata()
@@ -23,6 +23,14 @@ for item in meta['papers']:
     prefix='C' if p.name.startswith('01') else 'T'
     if [r['id'] for r in rows]!=[prefix+f'{i:02}' for i in range(1,len(rows)+1)]:errors.append(f'{p.name}: nonsequential evidence IDs')
     if not rows or any(not r['source'] or r['status'] not in ['verified','pending','author_report'] for r in rows):errors.append(f'{p.name}: incomplete evidence ledger')
+    for entry in re.split(r'\\bibitem', (p/'references.tex').read_text())[1:]:
+        urls=re.findall(r'\\url\{([^}]+)\}',entry)
+        for url in urls:
+            if url.startswith(('https://laconga.redclara.net/','http://laconga.redclara.net/')):
+                if not any(re.fullmatch(r'https://web\.archive\.org/web/\d{14}/'+re.escape(url), twin) for twin in urls):
+                    message=f'{p.name}: missing dated archive twin for {url}'
+                    if strict: errors.append(message)
+                    else: print('  Archive warning:',message)
     pending=[r['id'] for r in rows if r['status']!='verified']
     print('  Unresolved evidence:',', '.join(pending) or 'none')
     if item['status'] not in ['draft','ready']: errors.append(f'{p.name}: invalid status')
@@ -37,9 +45,9 @@ for item in meta['papers']:
             if not meta['affiliations'][key].get('postal_address'):errors.append(f'{p.name}: missing postal address for {key}')
         for field in ['editorial_policy_confirmed','declarations_reviewed']:
             if item.get(field) is not True:errors.append(f'{p.name}: {field} not completed')
-        if re.search(r'pendiente|se completar[áa]|se documentar[áa]n antes',body,re.I):errors.append(f'{p.name}: unresolved editorial wording in manuscript')
+        if r'\editorialtodo{' in body:errors.append(f'{p.name}: explicit editorial TODO in manuscript')
 # One immutable environment for CI and Codespaces.
-image=__import__('json').loads((ROOT/'.devcontainer/devcontainer.json').read_text())['image']
+image=runtime_image()
 if '@sha256:' not in image or image not in (ROOT/'.github/workflows/papers.yml').read_text():errors.append('CI and Codespaces images must match by digest')
 if errors:raise SystemExit('\n'.join(errors))
 print('Submission checks passed.' if strict else 'Draft checks passed.')

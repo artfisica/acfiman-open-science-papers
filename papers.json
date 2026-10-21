@@ -69,8 +69,8 @@
     {
       "directory": "02-computacion-reproducible",
       "slug": "computacion",
-      "title": "Entornos reproducibles y automatización para la formación en física: una experiencia de computación transversal en América Latina",
-      "title_en": "Reproducible environments and automation for physics education: a transversal computing experience in Latin America",
+      "title": "Entornos reproducibles para la formación en física: arquitectura, opciones de despliegue y protocolo de evaluación",
+      "title_en": "Reproducible environments for physics education: architecture, deployment options and evaluation protocol",
       "authors": [
         {
           "name": "Arturo Sánchez Pineda",

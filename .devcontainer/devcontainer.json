@@ -1,6 +1,5 @@
 {
   "name": "ACFIMAN papers \u2014 LaTeX",
-  "image": "ghcr.io/xu-cheng/texlive-debian@sha256:78ac2204b8df113aca0561e8f173ad5b89ee51e90795173d2fe9bcf0fbce162e",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -15,5 +14,11 @@
   "containerEnv": {
     "PAPERS_RUNTIME": "ghcr.io/xu-cheng/texlive-debian@sha256:78ac2204b8df113aca0561e8f173ad5b89ee51e90795173d2fe9bcf0fbce162e"
   },
-  "remoteUser": "root"
+  "remoteUser": "vscode",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "TEX_IMAGE": "ghcr.io/xu-cheng/texlive-debian@sha256:78ac2204b8df113aca0561e8f173ad5b89ee51e90795173d2fe9bcf0fbce162e"
+    }
+  }
 }

@@ -8,7 +8,7 @@ Para cada edición 2022–2025, incorporar un registro agregado con fechas, defi
 
 ## Salud para todos
 
-ALAN 2026 fecha un seguimiento en 2022; el boletín de Cornell anuncia Editathon V2 para febrero de 2023. Hasta aclarar si son eventos distintos o un error de fecha, el ensayo usa las métricas de 2021 y describe la discrepancia sin combinar cohortes. El premio OMS se atribuye expresamente a lo informado por la publicación.
+ALAN 2026 fecha un seguimiento en 2022; el boletín de Cornell anuncia Editathon V2 para febrero de 2023. Hasta aclarar si son eventos distintos o un error de fecha, el ensayo usa las métricas de 2021 y omite el seguimiento hasta aclarar la fecha, sin combinar cohortes. El premio OMS se atribuye expresamente a lo informado por la publicación.
 
 ## Enseñanza y consumo computacional
 
@@ -19,3 +19,5 @@ En `papers/02-computacion-reproducible/data/` hay dos plantillas **vacías**: `s
 Las horas-núcleo se calculan como núcleos asignados por horas activas. Los GB-hora requieren integrar almacenamiento durante el tiempo que existe, incluyendo entornos detenidos y prebuilds. Añadir el uso de Actions y registrar tarifas, moneda, descuentos y fecha por separado. La factura real puede incluir cuotas y ajustes distintos de una estimación bruta. Registrar las incidencias por categorías sin atribuir a cohortes históricas los riesgos hipotéticos del cuadro del ensayo.
 
 Para reproducir una escuela deben fijarse commit de ejercicios, digest de imagen, versión de datos, condiciones de prebuild y comando de validación. Los repositorios públicos actuales documentan materiales; no reconstruyen por sí solos sesiones pasadas.
+
+La tabla del manuscrito resume ahora hallazgos documentados; la hoja por edición queda fuera del texto hasta completar la extracción. El ensayo no promete un inventario longitudinal completo. Véase `AUTHOR-INPUTS.md` para los datos y recuerdos concretos que aún se necesitan.
