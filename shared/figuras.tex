@@ -1,0 +1,23 @@
+% Estilo común de figuras (se incluye desde papers/*/figures/*.tex).
+% Misma sans y mismo acento que el manuscrito; trazos finos; sin rellenos.
+\usepackage{fontspec}
+\setmainfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+  ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage{xcolor,tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\definecolor{tinta}{RGB}{23,59,54}
+\definecolor{gris}{RGB}{107,107,102}
+\definecolor{humo}{RGB}{213,221,212}
+\tikzset{
+  caja/.style={draw=tinta,line width=0.6pt,rounded corners=2.5pt,align=center,
+    font=\small,inner sep=6pt,minimum height=13mm,text width=36mm},
+  titulo/.style={font=\small\bfseries,text=tinta},
+  detalle/.style={font=\footnotesize,text=gris},
+  carril/.style={draw=humo,line width=0.5pt,rounded corners=3pt},
+  rotulo/.style={font=\footnotesize\bfseries,text=gris,anchor=west},
+  flecha/.style={-{Stealth[length=2.4mm,width=2mm]},draw=tinta,line width=0.6pt},
+  bucle/.style={flecha,dashed,dash pattern=on 2.2pt off 1.6pt},
+  nota/.style={font=\footnotesize,text=gris,align=left},
+  punto/.style={circle,fill=tinta,inner sep=0pt,minimum size=2.4mm},
+  puntohueco/.style={circle,draw=tinta,fill=white,line width=0.6pt,inner sep=0pt,minimum size=2.4mm},
+}

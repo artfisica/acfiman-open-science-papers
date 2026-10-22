@@ -1,25 +1,114 @@
+% ---------------------------------------------------------------------------
+% Preámbulo compartido (v2): tipografía, color, cuadros, figuras y cabeceras.
+% Compilar con XeLaTeX. Todo lo que depende de papers.json llega por
+% build/metadata.tex como macros semánticas (\papertitle, \paperauthors, ...).
+% ---------------------------------------------------------------------------
 \usepackage{fontspec}
-\setmainfont{Latin Modern Roman}
-\setsansfont{Latin Modern Sans}
+% Serifa para el cuerpo: TeX Gyre Pagella (incluida en TeX Live completo).
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+  ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Scale=0.95]
+% Sans para títulos, cuadros y figuras: TeX Gyre Heros.
+\setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+  ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Scale=MatchLowercase]
 \setmonofont{Latin Modern Mono}[Scale=0.85]
 \usepackage{polyglossia}
 \setdefaultlanguage{spanish}
 \setotherlanguage{english}
-\usepackage[letterpaper,margin=27mm]{geometry}
-\usepackage{microtype,graphicx,booktabs,tabularx,amsmath}
-\usepackage{xcolor,placeins}
+\usepackage[letterpaper,margin=27mm,headsep=7mm,footskip=11mm]{geometry}
+\usepackage{microtype,graphicx,amsmath}
+\usepackage{xcolor,placeins,etoolbox}
+\usepackage{booktabs,tabularx,threeparttable,ragged2e}
 \usepackage{enumitem}
 \usepackage{titlesec}
+\usepackage{caption}
+\usepackage{fancyhdr}
 \usepackage[hidelinks,unicode]{hyperref}
 \usepackage{xurl}
-\setcounter{secnumdepth}{3}
-\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
-\titleformat{\paragraph}[runin]{\normalsize\itshape}{}{0pt}{}[.]
-\setlength{\parskip}{0.35em}
-\setlength{\parindent}{1em}
-\setlength{\emergencystretch}{2em}
-\setlist{nosep}
-\newcommand{\draftnotice}{\begin{center}\small\textsf{BORRADOR · Fuentes: \sourcerevision}\end{center}}
+\usepackage[autostyle]{csquotes}
 
+% --- Paleta: un acento y un gris. Los cuadros permanecen en negro. -----------
+\definecolor{tinta}{RGB}{23,59,54}    % acento (títulos, rótulos, trazos)
+\definecolor{gris}{RGB}{107,107,102}  % cabeceras y notas discretas
+\definecolor{humo}{RGB}{213,221,212}  % filetes muy suaves (solo figuras)
+
+% --- Párrafo y página ----------------------------------------------------------
+\linespread{1.04}
+\setlength{\parskip}{0.3em}
+\setlength{\parindent}{1.1em}
+\setlength{\emergencystretch}{3em}
+\tolerance=600 \hbadness=10000
+\widowpenalty=10000 \clubpenalty=10000
+\setlist{nosep}
+\setcounter{secnumdepth}{3}
+
+% --- Títulos de sección: sans, acento, numeración con punto (nivel 1) ---------
+\titleformat{\section}{\sffamily\bfseries\large\color{tinta}}{\thesection.}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.6em}{0.6em}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize}{\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{1.1em}{0.35em}
+\titleformat{\subsubsection}{\sffamily\itshape\normalsize}{\thesubsubsection}{0.6em}{}
+\titleformat{\paragraph}[runin]{\itshape}{}{0pt}{}[.]
+
+% --- Leyendas: rótulo en sans y acento, texto pequeño, alineado a la izquierda --
+\captionsetup{font=small,labelfont={sf,bf,color=tinta},labelsep=period,
+  justification=raggedright,singlelinecheck=false,skip=5pt}
+\captionsetup[table]{position=above,skip=3pt}
+\captionsetup[figure]{position=below}
+
+% --- Cuadros: sans pequeña, sin líneas internas ni sombreado (guía del Boletín)
+% Los flotantes reinician la fuente; el gancho correcto es \@floatboxreset.
+\makeatletter
+\g@addto@macro\@floatboxreset{\centering\ifdefstring{\@captype}{table}{\sffamily\small}{}}
+\makeatother
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{5pt}
+\setlength{\aboverulesep}{0.45ex}
+\setlength{\belowrulesep}{0.65ex}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}  % texto, sin justificar
+\newcolumntype{Z}{>{\RaggedLeft\arraybackslash}X}   % cifras alineadas a la derecha
+\newcommand{\nd}{---}                               % dato no documentado
+\newcommand{\aprox}{\ensuremath{\approx}}
+\newcommand{\mayor}{\ensuremath{>}}
+\newcommand{\menor}{\ensuremath{<}}
+\newcommand{\cabecera}[1]{\textbf{#1}}              % cabecera de columna
+\newcommand{\fila}[1]{\textbf{#1}}                  % rótulo de fila
+% Notas al pie de cuadro: \begin{tablenotes}[flushleft]\footnotesize ... \end{tablenotes}
+\appto\TPTnoteSettings{\footnotesize\color{gris}\RaggedRight}
+
+% --- Cabecera y pie ------------------------------------------------------------
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{14pt}
+\fancyhead[L]{\footnotesize\sffamily\color{gris}\papershorttitle}
+\fancyhead[R]{\footnotesize\sffamily\color{gris}%
+  \ifdefstring{\paperstatus}{draft}{Borrador \textperiodcentered{} fuentes: \sourcerevision}{}}
+\fancyfoot[C]{\small\sffamily\thepage}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\small\sffamily\thepage}%
+  \fancyhead[R]{\footnotesize\sffamily\color{gris}%
+    \ifdefstring{\paperstatus}{draft}{Borrador \textperiodcentered{} fuentes: \sourcerevision}{}}}
+
+% --- Bloque de título (datos desde build/metadata.tex) -------------------------
+\newcommand{\paperheading}{%
+  \thispagestyle{plain}%
+  \begin{center}
+    {\sffamily\bfseries\Large\color{tinta}\papertitle\par}\vspace{0.55em}
+    {\itshape\papertitleen\par}\vspace{1.2em}
+    {\paperauthors\par}\vspace{0.45em}
+    {\small\paperaffiliations\par}\vspace{0.25em}
+    {\small\color{gris}Correspondencia: \papercontact\par}
+  \end{center}
+  \vspace{0.3em}{\color{tinta}\hrule height 0.5pt}\vspace{1.1em}}
+
+% --- Resúmenes y palabras clave: medida algo más estrecha, rótulo en acento ---
+\newenvironment{bloqueresumen}[1]{%
+  \par\begingroup\small
+  \setlength{\leftskip}{7mm}\setlength{\rightskip}{7mm}\setlength{\parindent}{0pt}
+  \noindent{\sffamily\bfseries\color{tinta}#1.}\enspace\ignorespaces}{\par\endgroup}
+\newcommand{\clave}[2]{\par\begingroup\small
+  \setlength{\leftskip}{7mm}\setlength{\rightskip}{7mm}\setlength{\parindent}{0pt}
+  \noindent{\sffamily\bfseries\color{tinta}#1:}\enspace #2\par\endgroup\medskip}
+
+% --- Compatibilidad con el verificador: el banner ya no se invoca en el cuerpo --
+\newcommand{\draftnotice}{}
 \newcommand{\editorialtodo}[1]{\textbf{[Revisión editorial: #1]}}

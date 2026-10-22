@@ -88,7 +88,8 @@
       "corresponding_author": "Arturo Sánchez Pineda",
       "corresponding_email": "me@arturos.ch",
       "editorial_policy_confirmed": false,
-      "declarations_reviewed": false
+      "declarations_reviewed": false,
+      "short_title": "Hackatones y prácticas abiertas para construir comunidades científicas"
     },
     {
       "directory": "02-computacion-reproducible",
@@ -113,7 +114,8 @@
       "corresponding_author": "Arturo Sánchez Pineda",
       "corresponding_email": "me@arturos.ch",
       "editorial_policy_confirmed": false,
-      "declarations_reviewed": false
+      "declarations_reviewed": false,
+      "short_title": "Entornos reproducibles para la formación en física"
     }
   ]
 }

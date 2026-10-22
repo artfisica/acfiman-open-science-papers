@@ -3,14 +3,12 @@
 \input{build/metadata}
 \begin{document}
 \paperheading
-\noindent\textbf{Resumen.} \input{text/abstract-es}
-\par\noindent\textbf{Palabras clave:} computación científica; física; reproducibilidad; Git; automatización; formación.
-\par\medskip
+\begin{bloqueresumen}{Resumen}\input{text/abstract-es}\end{bloqueresumen}
+\clave{Palabras clave}{computación científica; física; reproducibilidad; Git; automatización; formación.}
 \begin{english}
-\noindent\textbf{Abstract.} \input{text/abstract-en}
-\par\noindent\textbf{Keywords:} scientific computing; physics; reproducibility; Git; automation; education.
-\par\end{english}
-\medskip
+\begin{bloqueresumen}{Abstract}\input{text/abstract-en}\end{bloqueresumen}
+\clave{Keywords}{scientific computing; physics; reproducibility; Git; automation; education.}
+\end{english}
 \input{text/01-introduccion}
 \input{text/02-antecedentes}
 \input{text/03-arquitectura}

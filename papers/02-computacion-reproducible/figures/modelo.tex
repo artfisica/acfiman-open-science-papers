@@ -1,17 +1,30 @@
-\documentclass[border=4mm]{standalone}
-\usepackage{fontspec}
-\setmainfont{Latin Modern Sans}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning}
+\documentclass[border=2mm]{standalone}
+\input{../../../shared/figuras}
 \begin{document}
-\begin{tikzpicture}[>=Stealth,box/.style={draw,rounded corners=2pt,align=center,text width=38mm,minimum height=14mm,font=\small},every edge/.style={draw,->}]
-
-\node[box] (source) at (5,0) {Repositorio Git\\texto, código y datos};
-\node[box] (edit) at (0,-2.2) {Entorno interactivo\\Codespaces / local};
-\node[box] (ci) at (10,-2.2) {Ejecución automática\\comprobaciones};
-\node[box] (review) at (0,-4.4) {Revisión científica\\e interpretación};
-\node[box] (pdf) at (10,-4.4) {Resultados y PDF\\con procedencia};
-\path (source) edge (edit) (source) edge (ci) (edit) edge (review) (ci) edge (pdf) (pdf) edge (review);
-\draw[->] (review.west) -- ++(-0.6,0) |- (source.west);
+\begin{tikzpicture}[x=1mm,y=1mm]
+% Tres carriles: fuentes, trabajo, salida y revisión (todos dentro de 160 mm)
+\draw[carril] (8,46) rectangle (160,66);
+\draw[carril] (8,23) rectangle (160,43);
+\draw[carril] (8,0)  rectangle (160,20);
+\node[rotulo] at (10,63) {FUENTES};
+\node[rotulo] at (10,40) {TRABAJO};
+\node[rotulo] at (10,17) {SALIDA Y REVISIÓN};
+% Nodos (anchura fija para alinear las columnas)
+\node[caja,text width=40mm] (repo) at (84,56) {\textbf{Repositorio Git}\\\textcolor{gris}{texto, código, datos y entorno}};
+\node[caja,text width=40mm] (edit) at (48,33) {\textbf{Entorno interactivo}\\\textcolor{gris}{Codespaces o equipo local}};
+\node[caja,text width=40mm] (ci)   at (120,33) {\textbf{Ejecución automática}\\\textcolor{gris}{comprobaciones y compilación}};
+\node[caja,text width=40mm] (rev)  at (48,10) {\textbf{Revisión científica}\\\textcolor{gris}{interpretación humana}};
+\node[caja,text width=40mm] (out)  at (120,10) {\textbf{Resultados y PDF}\\\textcolor{gris}{con procedencia}};
+% Flujo de archivos
+\draw[flecha] (repo.south) -- ++(0,-3) -| (edit.north);
+\draw[flecha] (repo.south) -- ++(0,-3) -| (ci.north);
+\draw[flecha] (edit.south) -- (rev.north);
+\draw[flecha] (ci.south) -- (out.north);
+\draw[flecha] (out.west) -- (rev.east);
+% Bucle humano, por fuera de los carriles: nuevas revisiones de las fuentes
+\draw[bucle] (rev.west) -- ++(-24,0) |- (repo.west) node[pos=0.78,above,detalle] {nuevas revisiones};
+% Leyenda, bajo los carriles
+\draw[flecha] (8,-5) -- (18,-5); \node[nota,anchor=west] at (19,-5) {flujo de archivos};
+\draw[bucle]  (50,-5) -- (60,-5); \node[nota,anchor=west] at (61,-5) {decisión humana};
 \end{tikzpicture}
 \end{document}

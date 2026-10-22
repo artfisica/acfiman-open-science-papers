@@ -7,7 +7,7 @@ def metadata():
 def tex(value):
     return ''.join({'\\':r'\textbackslash{}','&':r'\&','%':r'\%','$':r'\$','#':r'\#','_':r'\_','{':r'\{','}':r'\}','~':r'\textasciitilde{}','^':r'\textasciicircum{}'}.get(c,c) for c in str(value))
 def inputs(p):
-    files = [ROOT/'papers.json', ROOT/'shared/preamble.tex', ROOT/'Makefile']
+    files = [ROOT/'papers.json', ROOT/'Makefile', *sorted((ROOT/'shared').glob('*.tex'))]
     files += list((ROOT/'scripts').glob('*.py'))
     files += list((ROOT/'.devcontainer').glob('*'))
     files += list((ROOT/'.github/workflows').glob('*.yml'))
@@ -50,34 +50,53 @@ def generate(item):
     for i,key in enumerate(used,1):
         a=m['affiliations'][key]
         affiliations.append(r'\textsuperscript{'+str(i)+'}'+tex(a['name'])+(r' --- '+tex(a['postal_address']) if a['postal_address'] else ''))
-    draft = r'\draftnotice' if item['status']=='draft' else ''
-    revision=info['source_date']+' · '+info['source_commit'][:10]+(' · cambios locales' if info['source_dirty'] else '')
+    revision=info['source_date']+' \u00b7 '+info['source_commit'][:10]+(' \u00b7 cambios locales' if info['source_dirty'] else '')
     contact=tex(item['corresponding_author'])
     if item['corresponding_email']: contact+='; '+tex(item['corresponding_email'])
+    # Macros semanticas: el preambulo decide la maquetacion del bloque de titulo.
     s=(r'\hypersetup{pdftitle={'+tex(item['title'])+r'},pdfauthor={'+tex(', '.join(a['name'] for a in item['authors']))+'}}\n'+
-       r'\newcommand{\sourcerevision}{'+tex(revision)+'}\n'+r'\newcommand{\paperheading}{'+draft+r'\begin{center}'+
-       r'{\LARGE\bfseries '+tex(item['title'])+r'}\par\vspace{0.6em}'+
-       r'{\large\itshape '+tex(item['title_en'])+r'}\par\vspace{0.9em}'+r'\\'.join(lines)+
-       r'\par\vspace{0.4em}{\small '+r'\\'.join(affiliations)+r'}\par\small Correspondencia: '+contact+
-       r'\end{center}}'+'\n')
+       r'\newcommand{\sourcerevision}{'+tex(revision)+'}\n'+
+       r'\newcommand{\papertitle}{'+tex(item['title'])+'}\n'+
+       r'\newcommand{\papertitleen}{'+tex(item['title_en'])+'}\n'+
+       r'\newcommand{\papershorttitle}{'+tex(item.get('short_title') or item['title'])+'}\n'+
+       r'\newcommand{\paperauthors}{'+r'\\'.join(lines)+'}\n'+
+       r'\newcommand{\paperaffiliations}{'+r'\\'.join(affiliations)+'}\n'+
+       r'\newcommand{\papercontact}{'+contact+'}\n'+
+       r'\newcommand{\paperstatus}{'+item['status']+'}\n')
     (b/'metadata.tex').write_text(s)
+    def cell(v):
+        v=(v or '').strip()
+        if v in ('ND',''): return r'\nd'
+        out=tex(v)
+        return out.replace(r'\textasciitilde{}',r'\aprox{}').replace('>',r'\mayor{}').replace('<',r'\menor{}')
     editions=p/'data/coafina-editions-public.csv'
     if editions.exists():
         rows=list(csv.DictReader(editions.open()))
-        table=r'\begin{tabularx}{160mm}{@{}l*{5}{>{\raggedright\arraybackslash}X}@{}}\toprule'+'\n'
-        table+=r'Año & Registro & Actividad & Productos & Retos & Universidades \\'+'\n'
+        table=r'\begin{tabularx}{\linewidth}{@{}l l r r >{\RaggedRight\arraybackslash}p{30mm} Z r@{}}\toprule'+'\n'
+        table+=r'\cabecera{Edición} & \cabecera{Fechas} & \cabecera{Inscritos} & \cabecera{Actividad} & \cabecera{Entregas} & \cabecera{Retos} & \cabecera{Universidades} \\\midrule'+'\n'
+        def dates(row):
+            import datetime
+            start=datetime.date.fromisoformat(row['date_start']); end=datetime.date.fromisoformat(row['date_end'])
+            return start.strftime('%d/%m')+'--'+end.strftime('%d/%m')
         for row in rows:
             if row['status']=='programado': continue
-            activity=row['participated']+(' al final' if row['edition']=='2022' else '')
-            university=row['registered_universities']+' (registro)' if row['edition']=='2022' else row['universities_event']
-            table+=' & '.join(tex(v) for v in [row['edition'],row['registered'],activity,row['solutions_or_teams'],row['challenges'],university])+r' \\'+'\n'
+            activity=row['participated']
+            if activity.startswith('ND'): activity='ND'
+            university=row['registered_universities'] if row['edition']=='2022' else row['universities_event']
+            university=university.split(' (')[0]
+            unimark=r'\tnote{a}' if row['edition']=='2022' else ''
+            entregas=row['solutions_or_teams'].replace(' soluciones evaluadas',' soluciones')
+            table+=' & '.join([r'\fila{'+row['edition']+'}',dates(row),cell(row['registered'].split(' (')[0]),cell(activity),cell(entregas),cell(row['challenges'].split(' (')[0]),cell(university)+unimark])+r' \\'+'\n'
         (b/'ediciones-body.tex').write_text(table+r'\bottomrule\end{tabularx}'+'\n')
         rows=list(csv.DictReader((p/'data/participation-flows.csv').open()))
-        table=r'\begin{tabularx}{160mm}{@{}p{32mm}p{16mm}p{15mm}Xp{22mm}@{}}\toprule'+'\n'
-        table+=r'Evento & Inscritos & Recuento & Umbral reportado & Cociente \\'+'\n'
+        table=r'\begin{tabularx}{\linewidth}{@{}l r r Y r@{}}\toprule'+'\n'
+        table+=r'\cabecera{Evento} & \cabecera{Inscritos} & \cabecera{Recuento} & \cabecera{Umbral de actividad reportado} & \cabecera{Cociente} \\\midrule'+'\n'
         for row in rows:
-            table+=' & '.join(tex(row[k]) for k in ['event','registered','observed','definition','ratio'])+r' \\'+'\n'
+            ratio=row['ratio'].replace('No calculable','ND')
+            table+=' & '.join([r'\fila{'+tex(row['event'])+'}',cell(row['registered']),cell(row['observed']),tex(row['definition']),cell(ratio)])+r' \\'+'\n'
         (b/'participacion-body.tex').write_text(table+r'\bottomrule\end{tabularx}'+'\n')
+    from participation_figure import generate_figure
+    generate_figure(p, b, tex)
     return info
 
 def expand(path, paper=None, stack=()):
