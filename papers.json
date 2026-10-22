@@ -22,9 +22,10 @@
       "title_en": "Hackathons and open practices for building scientific communities in Latin America",
       "authors": [
         {
-          "name": "Oscar Altuve Pabon",
+          "name": "Arturo Sánchez Pineda",
           "affiliations": [
-            "cc-ve"
+            "cc-ve",
+            "cc-ch"
           ],
           "manuscript_approval": {
             "status": "pending",
@@ -32,10 +33,9 @@
           }
         },
         {
-          "name": "Arturo Sánchez Pineda",
+          "name": "Oscar Altuve Pabon",
           "affiliations": [
-            "cc-ve",
-            "cc-ch"
+            "cc-ve"
           ],
           "manuscript_approval": {
             "status": "pending",
@@ -54,22 +54,22 @@
           }
         },
         {
-          "name": "Ariana Moreno",
+          "name": "Estefanía Sánchez Pineda",
           "affiliations": [
             "cc-ve"
           ],
-          "profile": "https://www.linkedin.com/in/ariana-moreno-9b3017219/",
+          "profile": "https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/",
           "manuscript_approval": {
             "status": "pending",
             "approved_source_commit": null
           }
         },
         {
-          "name": "Estefanía Sánchez Pineda",
+          "name": "Ariana Moreno",
           "affiliations": [
             "cc-ve"
           ],
-          "profile": "https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/",
+          "profile": "https://www.linkedin.com/in/ariana-moreno-9b3017219/",
           "manuscript_approval": {
             "status": "pending",
             "approved_source_commit": null

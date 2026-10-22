@@ -3,21 +3,21 @@
 \begin{document}
 \begin{tikzpicture}[x=1mm,y=1mm]
 % Tres carriles: fuentes, trabajo, salida y revisión (todos dentro de 160 mm)
-\draw[carril] (8,46) rectangle (160,66);
-\draw[carril] (8,23) rectangle (160,43);
-\draw[carril] (8,0)  rectangle (160,20);
-\node[rotulo] at (10,63) {FUENTES};
-\node[rotulo] at (10,40) {TRABAJO};
-\node[rotulo] at (10,17) {SALIDA Y REVISIÓN};
+\draw[carril] (8,68) rectangle (160,98);
+\draw[carril] (8,34) rectangle (160,64);
+\draw[carril] (8,0)  rectangle (160,30);
+\node[rotulo] at (10,94) {FUENTES};
+\node[rotulo] at (10,60) {TRABAJO};
+\node[rotulo] at (10,26) {SALIDA Y REVISIÓN};
 % Nodos (anchura fija para alinear las columnas)
-\node[caja,text width=40mm] (repo) at (84,56) {\textbf{Repositorio Git}\\\textcolor{gris}{texto, código, datos y entorno}};
-\node[caja,text width=40mm] (edit) at (48,33) {\textbf{Entorno interactivo}\\\textcolor{gris}{Codespaces o equipo local}};
-\node[caja,text width=40mm] (ci)   at (120,33) {\textbf{Ejecución automática}\\\textcolor{gris}{comprobaciones y compilación}};
-\node[caja,text width=40mm] (rev)  at (48,10) {\textbf{Revisión científica}\\\textcolor{gris}{interpretación humana}};
-\node[caja,text width=40mm] (out)  at (120,10) {\textbf{Resultados y PDF}\\\textcolor{gris}{con procedencia}};
+\node[caja,text width=40mm] (repo) at (84,80) {\textbf{Repositorio Git}\\\textcolor{gris}{texto, código, datos y entorno}};
+\node[caja,text width=40mm] (edit) at (48,46) {\textbf{Entorno interactivo}\\\textcolor{gris}{Codespaces o equipo local}};
+\node[caja,text width=40mm] (ci)   at (120,46) {\textbf{Ejecución automática}\\\textcolor{gris}{comprobaciones y compilación}};
+\node[caja,text width=40mm] (rev)  at (48,12) {\textbf{Revisión científica}\\\textcolor{gris}{interpretación humana}};
+\node[caja,text width=40mm] (out)  at (120,12) {\textbf{Resultados y PDF}\\\textcolor{gris}{con procedencia}};
 % Flujo de archivos
-\draw[flecha] (repo.south) -- ++(0,-3) -| (edit.north);
-\draw[flecha] (repo.south) -- ++(0,-3) -| (ci.north);
+\draw[flecha] (repo.south) -- ++(0,-5) -| (edit.north);
+\draw[flecha] (repo.south) -- ++(0,-5) -| (ci.north);
 \draw[flecha] (edit.south) -- (rev.north);
 \draw[flecha] (ci.south) -- (out.north);
 \draw[flecha] (out.west) -- (rev.east);
