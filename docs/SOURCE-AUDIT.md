@@ -11,7 +11,7 @@ Fecha de revisión: 22 de octubre de 2026.
 | CoAfina 2024 | 80 participantes; >40 universidades; 12 retos | No registro total; países del podio no son países de todos |
 | CoAfina 2025 | >30 venezolanos antes; apertura oficial: 183 anunciados, >60 universidades, 8 países, 7 retos | No 90 estudiantes, 50 universidades y 15 países finales |
 | Editatón 2021 | 19/45=42,2%; metas publicadas 40/20/50, dos alcanzadas | No aprendizaje medido; no equivalencia con WMF ≥5 ediciones/mes |
-| Seguimiento ALAN | 13/49=26,5%; fecha no confirmada | No transferencia automática a V2 febrero 2023 |
+| Seguimiento ALAN | 13/49=26,5%; V2 de Cornell, 13–16 de febrero de 2023, confirmado por los autores | No atribuir la menor conversión a una causa que las fuentes no documentan |
 | CSC | 70 plazas en noticia diciembre; 69 seleccionados en enero | No 80 estudiantes ni asistentes medidos a cada sesión |
 | CSC preparación | 60 minutos programados, responsable Andrzej Nowicki | No 60 minutos medidos ni provisioning atribuible por defecto a Arturo |
 | Commits docentes | Revisiones contemporáneas citables | No prueba del checkout de cada estudiante ni de prebuilds |

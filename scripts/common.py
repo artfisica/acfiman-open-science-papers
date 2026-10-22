@@ -86,7 +86,8 @@ def generate(item):
             university=university.split(' (')[0]
             unimark=r'\tnote{a}' if row['edition']=='2022' else ''
             entregas=row['solutions_or_teams'].replace(' soluciones evaluadas',' soluciones')
-            table+=' & '.join([r'\fila{'+row['edition']+'}',dates(row),cell(row['registered'].split(' (')[0]),cell(activity),cell(entregas),cell(row['challenges'].split(' (')[0]),cell(university)+unimark])+r' \\'+'\n'
+            regmark=r'\tnote{b}' if row['edition']=='2025' else ''
+            table+=' & '.join([r'\fila{'+row['edition']+'}',dates(row),cell(row['registered'].split(' (')[0])+regmark,cell(activity),cell(entregas),cell(row['challenges'].split(' (')[0]),cell(university)+unimark])+r' \\'+'\n'
         (b/'ediciones-body.tex').write_text(table+r'\bottomrule\end{tabularx}'+'\n')
         rows=list(csv.DictReader((p/'data/participation-flows.csv').open()))
         table=r'\begin{tabularx}{\linewidth}{@{}l r r Y r@{}}\toprule'+'\n'

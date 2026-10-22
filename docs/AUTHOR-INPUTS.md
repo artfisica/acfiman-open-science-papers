@@ -8,7 +8,7 @@ Nos falta extraer los agregados finales de 2025 y precisar las definiciones usad
 
 ## Salud para todos
 
-Confirmaremos con Anna Bennett y Saurabh Mehta si las cifras de seguimiento de ALAN (49 registros, 13 editores, 22 artículos, 43 referencias) corresponden a V2 de febrero de 2023 o a otra actividad. La consulta está preparada, no enviada; no hemos solicitado un erratum. Mantendremos separados los datos publicados y la fecha hasta recibir confirmación. Si procede corregir ALAN, acordaremos el texto con los coautores y la revista.
+Confirmamos el 22 de octubre de 2026 que las cifras de seguimiento de ALAN (49 registros, 13 editores, 22 artículos, 43 referencias) corresponden al V2 de Cornell del 13 al 16 de febrero de 2023. ALAN lo fecha en 2022 por error. Solicitaremos a la revista un erratum de fecha con el texto de `docs/ERRATUM-ALAN.md`; el ensayo ya cita la fecha correcta.
 
 Revisaremos también la denominación de editor activo: ALAN usa al menos una edición durante el evento; la fuente WMF citada define cinco por mes. El nuevo ensayo usa expresamente la definición operativa del evento. La Tabla 1 de ALAN informa 64 artículos/elementos y su Tabla 2 reproduce 99 artículos editados: necesitamos documentar ventanas, plataformas y deduplicación antes de conciliarlos. El dashboard no respondió en la comprobación del 22 de octubre (HTTP 503); no lo damos por revalidado. El informe OMS 2021 sí conserva un panel de 19 editores y 99 artículos editados. Revisaremos además 28/45 (62,2%) frente al 63,1% del perfil sanitario de ALAN; ese porcentaje no se reutiliza en el ensayo.
 

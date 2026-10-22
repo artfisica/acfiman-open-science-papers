@@ -8,7 +8,8 @@ Destino previsto: Boletín de la Academia de Ciencias Físicas, Matemáticas y N
 - [x] Registrar Caracas, Venezuela, y Zúrich, Suiza, como ubicaciones de los capítulos distribuidos; correspondencia: me@arturos.ch. No disponemos de dirección postal física.
 - [ ] Completar financiación y declaraciones de intereses de cada manuscrito; revisar el vínculo profesional con INAIT y los apoyos históricos descritos. Cambiar `declarations_reviewed` solo tras concluir la revisión.
 - [ ] Completar los resultados finales de CoAfina 2025 si se dispone de registros; su convocatoria ya tiene fuente fechada. No sustituir ND por cifras de un resumen sin denominador.
-- [ ] Cotejar con los organizadores la cronología del seguimiento de Salud para todos. Conservamos las métricas publicadas sin asignarlas automáticamente al V2 anunciado por Cornell.
+- [x] Cronología del seguimiento de Salud para todos confirmada: V2 de Cornell, 13–16 de febrero de 2023.
+- [ ] Enviar a ALAN la solicitud de erratum de fecha (`docs/ERRATUM-ALAN.md`).
 - [ ] Revisar todos los textos, citas, cuadros, figuras y derechos de terceros. La revisión visual y científica sigue siendo responsabilidad de los autores.
 - [ ] Completar contribuciones de autoría según la información del equipo; registrar la aprobación de la versión final y su commit en `manuscript_approval`. No inferir funciones a partir de afiliaciones.
 - [ ] Cambiar `status` a `ready` por manuscrito y retirar las frases editoriales pendientes del texto.
