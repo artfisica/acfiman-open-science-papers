@@ -3,11 +3,15 @@
   "affiliations": {
     "cc-ve": {
       "name": "Creative Commons Venezuela",
-      "postal_address": null
+      "postal_address": "Caracas, Venezuela",
+      "address_kind": "city_country",
+      "distributed_group": true
     },
     "cc-ch": {
       "name": "Creative Commons Switzerland",
-      "postal_address": null
+      "postal_address": "Zúrich, Suiza",
+      "address_kind": "city_country",
+      "distributed_group": true
     }
   },
   "papers": [

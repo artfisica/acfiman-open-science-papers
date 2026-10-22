@@ -5,7 +5,7 @@ Destino previsto: Boletín de la Academia de Ciencias Físicas, Matemáticas y N
 ## Antes del envío
 
 - [ ] Confirmar con la revista compatibilidad del preprint público y modalidad de ensayo; registrar la respuesta y actualizar `editorial_policy_confirmed` en `papers.json`.
-- [ ] Completar direcciones postales institucionales y correo de correspondencia en `papers.json`.
+- [x] Registrar Caracas, Venezuela, y Zúrich, Suiza, como ubicaciones de los capítulos distribuidos; correspondencia: me@arturos.ch. No disponemos de dirección postal física.
 - [ ] Completar financiación y declaraciones de intereses de cada manuscrito; revisar el vínculo profesional con INAIT y los apoyos históricos descritos. Cambiar `declarations_reviewed` solo tras concluir la revisión.
 - [ ] Completar los resultados finales de CoAfina 2025 si se dispone de registros; su convocatoria ya tiene fuente fechada. No sustituir ND por cifras de un resumen sin denominador.
 - [ ] Cotejar con los organizadores la cronología del seguimiento de Salud para todos. Conservamos las métricas publicadas sin asignarlas automáticamente al V2 anunciado por Cornell.

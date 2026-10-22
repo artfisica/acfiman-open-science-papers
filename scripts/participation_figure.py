@@ -14,8 +14,10 @@ def generate_figure(paper, build, tex):
     def display(s):
         return tex(s).replace(r'\textasciitilde{}',r'$\approx$').replace('>',r'$>$').replace('<',r'$<$')
     lines=[r'\begin{tikzpicture}[x=1mm,y=1mm]']
+    for n in range(0,int(maximum)+1,20):
+        lines.append(r'\draw[humo,line width=0.3pt] ('+f'{x(n)},3) -- ({x(n)},{-len(rows)*9+4});')
     for i,r in enumerate(rows):
-        y=-i*15
+        y=-i*9
         a,b=number(r['observed']),number(r['registered'])
         lines.append(r'\node[anchor=east,font=\small,align=right,text width=49mm] at (51,'+str(y)+'){'+tex(r['event'])+'};')
         if a is not None and b is not None:
@@ -31,13 +33,18 @@ def generate_figure(paper, build, tex):
                 lines.append(r'\draw[tinta] '+pos+' ++(0,1.4) -- ++(1.4,-1.4) -- ++(-1.4,-1.4) -- ++(-1.4,1.4) -- cycle;')
             else:
                 lines.append(r'\node['+('punto' if key=='observed' else 'puntohueco')+'] at '+pos+' {};')
-        label=display(r['observed'])+' / '+display(r['registered'])+'; '+display(r['ratio'])
-        lines.append(r'\node[anchor=west,font=\footnotesize] at (158,'+str(y)+'){'+label+'};')
-    y=-len(rows)*15+6
+        label=(display(r['observed'])+r' participantes;\\inscritos no publicados' if b is None else display(r['observed'])+' / '+display(r['registered'])+'; '+display(r['ratio']))
+        lines.append(r'\node[anchor=west,font=\small,align=left,text width=55mm] at (158,'+str(y)+'){'+label+'};')
+    y=-len(rows)*9+4
     lines.append(r'\draw[gris] (55,'+str(y)+') -- (153,'+str(y)+');')
     for n in range(0,int(maximum)+1,20):
-        lines.append(r'\node[anchor=north,font=\footnotesize,text=gris] at ('+f'{x(n)},{y}' +'){'+str(n)+'};')
-    lines.append(r'\node[anchor=north,font=\footnotesize] at (100,'+str(y-5)+'){Personas};')
-    lines.append(r'\node[anchor=west,font=\footnotesize] at (55,12){Círculo lleno: actividad; vacío: inscripción; rombo: aproximación};')
+        lines.append(r'\node[anchor=north,font=\small,text=gris] at ('+f'{x(n)},{y}' +'){'+str(n)+'};')
+    lines.append(r'\node[anchor=north,font=\small] at (100,'+str(y-5)+'){Personas};')
+    lines.extend([
+        r'\node[punto] at (55,17) {}; \node[anchor=west,font=\small] at (58,17){Actividad};',
+        r'\node[puntohueco] at (105,17) {}; \node[anchor=west,font=\small] at (108,17){Inscripción};',
+        r'\draw[tinta] (55,10) ++(0,1.4) -- ++(1.4,-1.4) -- ++(-1.4,-1.4) -- ++(-1.4,1.4) -- cycle; \node[anchor=west,font=\small] at (58,10){Aproximación};',
+        r'\draw[tinta,-{Stealth[open]},dashed] (105,10) -- (112,10); \node[anchor=west,font=\small] at (115,10){Cota inferior abierta};'
+    ])
     lines.append(r'\end{tikzpicture}')
     (build/'participacion-chart.tex').write_text('\n'.join(lines)+'\n')
