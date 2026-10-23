@@ -20,8 +20,10 @@ function selectPaper() {
   document.getElementById('reader-hash').textContent = `PDF SHA-256: ${manifest.pdf_sha256}`;
   document.getElementById('manifest').href = `manifests/${id}.json`;
   const viewer = document.getElementById('pdf-viewer');
-  if (window.matchMedia('(min-width: 801px)').matches) viewer.src = `${pdf}#view=FitH`;
-  else viewer.removeAttribute('src');
+  if (window.matchMedia('(min-width: 801px)').matches) {
+    const source = `${pdf}#view=FitH`;
+    if (viewer.getAttribute('src') !== source) viewer.setAttribute('src', source);
+  } else if (viewer.hasAttribute('src')) viewer.removeAttribute('src');
   viewer.title = `PDF: ${paper.title}`;
   document.title = `${paper.title} · Ciencia abierta`;
 }
