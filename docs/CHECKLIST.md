@@ -23,11 +23,11 @@ Carta, una columna, títulos y resúmenes bilingües, resúmenes de hasta 150 pa
 
 Orden y afiliaciones mantenidos según la configuración del proyecto:
 
-1. Oscar Altuve Pabon — Creative Commons Venezuela.
-2. Arturo Sánchez Pineda — Creative Commons Venezuela y Creative Commons Switzerland.
+1. [Arturo Sánchez Pineda](https://www.linkedin.com/in/arturo-sanchez-pineda/) — Creative Commons Venezuela y Creative Commons Switzerland.
+2. [Oscar Altuve Pabon](https://www.linkedin.com/in/altuos/) — Creative Commons Venezuela.
 3. [Iskya García](https://www.linkedin.com/in/iskya-garc%C3%ADa-09454711b/) — Creative Commons Venezuela.
-4. [Ariana Moreno](https://www.linkedin.com/in/ariana-moreno-9b3017219/) — Creative Commons Venezuela.
-5. [Estefanía Sánchez Pineda](https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/) — Creative Commons Venezuela.
+4. [Estefanía Sánchez Pineda](https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/) — Creative Commons Venezuela.
+5. [Ariana Moreno](https://www.linkedin.com/in/ariana-moreno-9b3017219/) — Creative Commons Venezuela.
 6. [Diego Salcedo Flores](https://www.linkedin.com/in/diego-salcedo-flores/) — Creative Commons Venezuela.
 
 El ensayo de computación mantiene a Arturo como autor. Los enlaces de perfil también están en los metadatos; no se usan como evidencia científica.

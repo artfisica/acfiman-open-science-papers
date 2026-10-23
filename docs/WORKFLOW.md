@@ -17,6 +17,10 @@ Las fechas mostradas son fechas de **revisión de las fuentes**, no hora de desc
 
 Se comprueban longitud de resúmenes, orden y resolución de citas, etiquetas referenciadas, IDs de evidencia, metadatos de envío y paridad de contenedor. La compilación falla ante referencias sin resolver o desbordamientos mayores de 5 pt; los menores se notifican para revisión visual. `make export` exige el modo estricto y vuelve a compilar antes de empaquetar.
 
+El modo estricto exige `manuscript_approval.status: approved` y un `approved_source_commit` completo por autor, perteneciente a la historia actual. La aprobación se contrasta con el texto, los datos y los metadatos actuales; registrar las aprobaciones no las invalida. Los cambios posteriores de contenido requieren nueva aprobación. Los cuadros independientes incluyen los metadatos necesarios y las referencias citadas, conservando su numeración en el manuscrito; se omiten cuadros que ya no forman parte del texto.
+
+Las regresiones se verifican con `python3 -m unittest discover -s tests -v` y `node --test tests/portal.cjs`. Si hay LaTeX instalado, las pruebas Python compilan los seis cuadros independientes; CI ejecuta esta comprobación en la imagen TeX fijada, aunque los manuscritos sigan en borrador.
+
 ## Hitos opcionales
 
 Los commits de PDF se mantienen. Para un hito revisado puede añadirse un tag y una Release, sin cambiar las rutas actuales. Antes de crearla, copiar los dos PDF a nombres distintos (`comunidades.pdf` y `computacion.pdf`) para evitar colisiones de assets, acompañados de sus manifiestos. No publicar una Release ni activar archivo externo hasta elegir el hito y revisar su contenido. El hash y la revisión del portal permiten identificar también borradores intermedios.

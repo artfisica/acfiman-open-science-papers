@@ -1,6 +1,6 @@
 """Draft checks always run; STRICT=1 additionally enforces submission readiness."""
 import csv, json, os, re, sys
-from common import ROOT, metadata, generate, expand, runtime_image
+from common import ROOT, metadata, generate, expand, runtime_image, approval_errors
 strict='--strict' in sys.argv or os.environ.get('STRICT')=='1'
 errors=[]
 meta=metadata()
@@ -42,6 +42,7 @@ for item in meta['papers']:
     print('  Unresolved evidence:',', '.join(pending) or 'none')
     if item['status'] not in ['draft','ready']: errors.append(f'{p.name}: invalid status')
     if strict:
+        errors.extend(approval_errors(item,p))
         if item['status']!='ready':errors.append(f'{p.name}: status is draft')
         # Remove command definition before checking whether the banner is invoked.
         without_definition=re.sub(r'\\newcommand\{\\draftnotice\}.*?\n','',body)

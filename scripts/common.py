@@ -24,6 +24,41 @@ def source_inputs(p):
 def runtime_image():
     config=json.loads((ROOT/'.devcontainer/devcontainer.json').read_text())
     return config.get('image') or config['build']['args']['TEX_IMAGE']
+def approval_errors(item, paper):
+    """Require approval of unchanged source content, ignoring approval bookkeeping."""
+    errors=[]
+    def reviewed_metadata(value):
+        for manuscript in value['papers']:
+            for author in manuscript['authors']:
+                author.pop('manuscript_approval',None)
+        return value
+    current=reviewed_metadata(metadata())
+    for author in item['authors']:
+        approval=author.get('manuscript_approval') or {}
+        prefix=f"{paper.name}: {author['name']}"
+        revision=approval.get('approved_source_commit') or ''
+        if approval.get('status')!='approved':
+            errors.append(prefix+': manuscript approval pending'); continue
+        if not re.fullmatch(r'[0-9a-f]{40}',revision):
+            errors.append(prefix+': approval requires a full source commit SHA'); continue
+        if subprocess.run(['git','merge-base','--is-ancestor',revision,'HEAD'],cwd=ROOT,
+                          stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
+            errors.append(prefix+': approved commit is not in current history'); continue
+        try:
+            previous=json.loads(subprocess.check_output(['git','show',revision+':papers.json'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL))
+        except (subprocess.CalledProcessError,json.JSONDecodeError):
+            errors.append(prefix+': approved commit has no manuscript metadata'); continue
+        # Recording an approval must not itself invalidate existing approvals.
+        changed=current!=reviewed_metadata(previous)
+        paths=subprocess.check_output(['git','diff','--name-only',revision,'--',str(paper.relative_to(ROOT))],cwd=ROOT,text=True).splitlines()
+        relevant=lambda path: 'build' not in Path(path).relative_to(paper.relative_to(ROOT)).parts and (
+            Path(path).suffix=='.tex' or ('data' in Path(path).relative_to(paper.relative_to(ROOT)).parts and Path(path).name!='evidence.csv'))
+        changed=changed or any(relevant(path) for path in paths)
+        # git diff omits untracked files, which are also unreviewed source inputs.
+        untracked=subprocess.check_output(['git','ls-files','--others','--exclude-standard','--',str(paper.relative_to(ROOT))],cwd=ROOT,text=True).splitlines()
+        if changed or any(relevant(path) for path in untracked):
+            errors.append(prefix+': manuscript sources changed since approval')
+    return errors
 def provenance(p):
     if subprocess.check_output(['git','rev-parse','--is-shallow-repository'],cwd=ROOT,text=True).strip()=='true':
         raise SystemExit('Full source history required: run git fetch --unshallow origin.')
