@@ -30,7 +30,8 @@
           "manuscript_approval": {
             "status": "pending",
             "approved_source_commit": null
-          }
+          },
+          "profile": "https://www.linkedin.com/in/arturo-sanchez-pineda/"
         },
         {
           "name": "Oscar Altuve Pabon",
@@ -40,7 +41,8 @@
           "manuscript_approval": {
             "status": "pending",
             "approved_source_commit": null
-          }
+          },
+          "profile": "https://www.linkedin.com/in/altuos/"
         },
         {
           "name": "Iskya García",
@@ -110,7 +112,8 @@
           "manuscript_approval": {
             "status": "pending",
             "approved_source_commit": null
-          }
+          },
+          "profile": "https://www.linkedin.com/in/arturo-sanchez-pineda/"
         }
       ],
       "status": "draft",
