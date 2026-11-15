@@ -28,8 +28,8 @@
             "cc-ch"
           ],
           "manuscript_approval": {
-            "status": "pending",
-            "approved_source_commit": null
+            "status": "approved",
+            "approved_source_commit": "cbc785deefc2e55d6f97eedca46507e5bc4407e8"
           },
           "profile": "https://www.linkedin.com/in/arturo-sanchez-pineda/"
         },
@@ -39,8 +39,8 @@
             "cc-ve"
           ],
           "manuscript_approval": {
-            "status": "pending",
-            "approved_source_commit": null
+            "status": "approved",
+            "approved_source_commit": "cbc785deefc2e55d6f97eedca46507e5bc4407e8"
           },
           "profile": "https://www.linkedin.com/in/altuos/"
         },
@@ -51,8 +51,8 @@
           ],
           "profile": "https://www.linkedin.com/in/iskya-garc%C3%ADa-09454711b/",
           "manuscript_approval": {
-            "status": "pending",
-            "approved_source_commit": null
+            "status": "approved",
+            "approved_source_commit": "cbc785deefc2e55d6f97eedca46507e5bc4407e8"
           }
         },
         {
@@ -62,8 +62,8 @@
           ],
           "profile": "https://www.linkedin.com/in/estefan%C3%ADa-s%C3%A1nchez-pineda/",
           "manuscript_approval": {
-            "status": "pending",
-            "approved_source_commit": null
+            "status": "approved",
+            "approved_source_commit": "cbc785deefc2e55d6f97eedca46507e5bc4407e8"
           }
         },
         {
@@ -73,8 +73,8 @@
           ],
           "profile": "https://www.linkedin.com/in/ariana-moreno-9b3017219/",
           "manuscript_approval": {
-            "status": "pending",
-            "approved_source_commit": null
+            "status": "approved",
+            "approved_source_commit": "cbc785deefc2e55d6f97eedca46507e5bc4407e8"
           }
         },
         {
@@ -84,8 +84,8 @@
           ],
           "profile": "https://www.linkedin.com/in/diego-salcedo-flores/",
           "manuscript_approval": {
-            "status": "pending",
-            "approved_source_commit": null
+            "status": "approved",
+            "approved_source_commit": "cbc785deefc2e55d6f97eedca46507e5bc4407e8"
           }
         }
       ],
