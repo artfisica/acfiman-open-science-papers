@@ -40,6 +40,25 @@ jobs:
         run: make all
       - name: Check approvals and compile standalone tables
         run: python3 -m unittest discover -s tests -v
+      - name: Export approved submission packages
+        run: |
+          python3 - <<'PYTHON'
+          import subprocess, sys
+          sys.path.insert(0, 'scripts')
+          from common import ROOT, metadata, approval_errors
+          for item in metadata()['papers']:
+              name = item['directory']
+              if item['status'] != 'ready' or approval_errors(item, ROOT/'papers'/name):
+                  print(f'Skipping submission export for {name}: approval pending or stale', flush=True)
+                  continue
+              subprocess.run(['make', 'export', f'PAPER={name}'], check=True)
+          PYTHON
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: submission-packages
+          path: dist/*.zip
+          if-no-files-found: ignore
+          retention-days: 30
       - name: Assemble reading portal
         run: python3 scripts/build_pages.py
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4

@@ -114,8 +114,8 @@
             "cc-ch"
           ],
           "manuscript_approval": {
-            "status": "pending",
-            "approved_source_commit": null
+            "status": "approved",
+            "approved_source_commit": "5073c267f808df2d8512d352d173fa72858b1bb0"
           },
           "profile": "https://www.linkedin.com/in/arturo-sanchez-pineda/"
         }
