@@ -21,5 +21,7 @@ def table_document(table, number, preamble, metadata, manuscript):
         bibliography += r'\end{thebibliography}' + '\n'
     return (r'\documentclass[11pt,letterpaper]{article}' + '\n' + preamble + '\n' + metadata
             + '\n' + r'\begin{document}\begin{minipage}{160mm}\makeatletter\def\@captype{table}\makeatother'
+            # Same face and size as tables inside the manuscript, where the float hook applies them.
+            + r'\sffamily\small'
             + '\n' + r'\setcounter{table}{' + str(number - 1) + '}' + table
             + r'\end{minipage}' + bibliography + r'\end{document}' + '\n')
