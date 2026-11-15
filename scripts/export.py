@@ -2,9 +2,11 @@
 import os, re, shutil, subprocess, sys, zipfile
 from common import ROOT, metadata, expand, provenance
 from table_export import table_document
-subprocess.run([sys.executable,str(ROOT/'scripts/check.py'),'--strict'],check=True)
-subprocess.run([sys.executable,str(ROOT/'scripts/build.py')],check=True,env=dict(os.environ,STRICT='1'))
+selected=sys.argv[1:] or os.environ.get('PAPER','').split()
+subprocess.run([sys.executable,str(ROOT/'scripts/check.py'),'--strict',*selected],check=True)
+subprocess.run([sys.executable,str(ROOT/'scripts/build.py'),*selected],check=True,env=dict(os.environ,STRICT='1'))
 for item in metadata()['papers']:
+    if selected and item['directory'] not in selected:continue
     p=ROOT/'papers'/item['directory'];d=ROOT/'dist'/p.name
     if d.exists():shutil.rmtree(d)
     (d/'figures').mkdir(parents=True);(d/'tables').mkdir()

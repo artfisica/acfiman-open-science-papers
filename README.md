@@ -22,6 +22,7 @@ make computing       # validar y compilar el ensayo técnico
 make pages           # compilar y preparar _site/
 make check STRICT=1  # comprobar condiciones de envío
 make export          # exige estado listo; genera dist/*.zip
+make export PAPER=02-computacion-reproducible  # un solo ensayo
 ```
 
 Con MacTeX, Python 3 y Latin Modern también puede ejecutarse `make all` localmente. El manifiesto identifica ese entorno como local; las compilaciones oficiales usan la imagen fijada. [Detalles del flujo](docs/WORKFLOW.md).

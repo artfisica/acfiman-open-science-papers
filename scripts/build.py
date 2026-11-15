@@ -3,7 +3,7 @@ import json, os, re, shutil, subprocess, sys
 from common import ROOT, metadata, generate, inputs, sha, runtime_image
 items=metadata()['papers']; names=sys.argv[1:] or [x['directory'] for x in items]
 if set(names)-{x['directory'] for x in items}:raise SystemExit('Unknown paper')
-subprocess.run([sys.executable,str(ROOT/'scripts/check.py')],check=True)
+subprocess.run([sys.executable,str(ROOT/'scripts/check.py'),*sys.argv[1:]],check=True)
 staged=[]
 for item in items:
     if item['directory'] not in names:continue

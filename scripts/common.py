@@ -28,10 +28,12 @@ def approval_errors(item, paper):
     """Require approval of unchanged source content, ignoring approval bookkeeping."""
     errors=[]
     def reviewed_metadata(value):
-        for manuscript in value['papers']:
+        # Compare this manuscript and the shared affiliations; another manuscript's status does not invalidate an approval.
+        papers=[m for m in value['papers'] if 'directory' not in item or m.get('directory')==item['directory']]
+        for manuscript in papers:
             for author in manuscript['authors']:
                 author.pop('manuscript_approval',None)
-        return value
+        return {'papers':papers,'affiliations':value.get('affiliations')}
     current=reviewed_metadata(metadata())
     for author in item['authors']:
         approval=author.get('manuscript_approval') or {}
@@ -112,7 +114,9 @@ def generate(item):
         def dates(row):
             import datetime
             start=datetime.date.fromisoformat(row['date_start']); end=datetime.date.fromisoformat(row['date_end'])
-            return start.strftime('%d/%m')+'--'+end.strftime('%d/%m')
+            meses=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']
+            if start.month==end.month: return f'{start.day}--{end.day} {meses[end.month-1]}'
+            return f'{start.day} {meses[start.month-1]}--{end.day} {meses[end.month-1]}'
         for row in rows:
             if row['status']=='programado': continue
             activity=row['participated']

@@ -14,6 +14,7 @@ Destino previsto: Boletín de la Academia de Ciencias Físicas, Matemáticas y N
 - [ ] Completar contribuciones de autoría según la información del equipo; registrar la aprobación de la versión final y su commit en `manuscript_approval`. No inferir funciones a partir de afiliaciones.
 - [ ] Cambiar `status` a `ready` por manuscrito y retirar las frases editoriales pendientes del texto.
 - [ ] Ejecutar `make check STRICT=1` y `make export`; inspeccionar el paquete antes de enviarlo.
+- [ ] Enviar a editora@acfiman.org con la carta y los pasos de [ENVIO-BOLETIN.md](ENVIO-BOLETIN.md); `PAPER=<directorio>` limita la comprobación y la exportación a un ensayo.
 
 ## Formato
 

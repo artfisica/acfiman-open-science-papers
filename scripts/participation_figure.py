@@ -33,7 +33,7 @@ def generate_figure(paper, build, tex):
                 lines.append(r'\draw[tinta] '+pos+' ++(0,1.4) -- ++(1.4,-1.4) -- ++(-1.4,-1.4) -- ++(-1.4,1.4) -- cycle;')
             else:
                 lines.append(r'\node['+('punto' if key=='observed' else 'puntohueco')+'] at '+pos+' {};')
-        label=(display(r['observed'])+r' participantes;\\inscritos no publicados' if b is None else display(r['observed'])+' / '+display(r['registered'])+'; '+display(r['ratio']))
+        label=(display(r['observed'])+r' participantes;\\inscritos no publicados' if b is None else display(r['observed'])+' de '+display(r['registered'])+' ('+display(r['ratio'])+')')
         lines.append(r'\node[anchor=west,font=\small,align=left,text width=55mm] at (158,'+str(y)+'){'+label+'};')
     y=-len(rows)*9+4
     lines.append(r'\draw[gris] (55,'+str(y)+') -- (153,'+str(y)+');')

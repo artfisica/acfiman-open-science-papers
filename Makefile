@@ -1,6 +1,8 @@
 .PHONY: all check community computing export pages clean
 STRICT ?= 0
+PAPER ?=
 export STRICT
+export PAPER
 all:
 	python3 scripts/build.py
 check:

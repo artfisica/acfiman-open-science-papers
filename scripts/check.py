@@ -4,7 +4,11 @@ from common import ROOT, metadata, generate, expand, runtime_image, approval_err
 strict='--strict' in sys.argv or os.environ.get('STRICT')=='1'
 errors=[]
 meta=metadata()
+# Optional paper directories (arguments or PAPER=...) limit the checks to those manuscripts.
+selected=[a for a in sys.argv[1:] if not a.startswith('--')] or os.environ.get('PAPER','').split()
+if set(selected)-{x['directory'] for x in meta['papers']}:raise SystemExit('Unknown paper')
 for item in meta['papers']:
+    if selected and item['directory'] not in selected:continue
     p=ROOT/'papers'/item['directory']; generate(item)
     for lang in ['es','en']:
         words=re.findall(r"\b[\w]+(?:[-’'][\w]+)*\b",(p/'text'/f'abstract-{lang}.tex').read_text())
@@ -22,7 +26,7 @@ for item in meta['papers']:
     rows=list(csv.DictReader((p/'data/evidence.csv').open()))
     prefix='C' if p.name.startswith('01') else 'T'
     if [r['id'] for r in rows]!=[prefix+f'{i:02}' for i in range(1,len(rows)+1)]:errors.append(f'{p.name}: nonsequential evidence IDs')
-    if not rows or any(not r['source'] or r['status'] not in ['verified','pending','author_report'] for r in rows):errors.append(f'{p.name}: incomplete evidence ledger')
+    if not rows or any(not r['source'] or r['status'] not in ['verified','pending','author_report','declared_limitation'] for r in rows):errors.append(f'{p.name}: incomplete evidence ledger')
     for entry in re.split(r'\\bibitem', (p/'references.tex').read_text())[1:]:
         urls=re.findall(r'\\url\{([^}]+)\}',entry)
         for url in urls:
@@ -38,8 +42,11 @@ for item in meta['papers']:
                     message=f'{p.name}: mutable or unreviewed source needs dated archive: {url}'
                     if strict: errors.append(message)
                     else: print('  Archive warning:',message)
-    pending=[r['id'] for r in rows if r['status']!='verified']
+    # author_report: organisers' testimony labelled as such in the text; declared_limitation: gap stated in the manuscript.
+    pending=[r['id'] for r in rows if r['status']=='pending']
+    labelled=[r['id'] for r in rows if r['status'] in ['author_report','declared_limitation']]
     print('  Unresolved evidence:',', '.join(pending) or 'none')
+    print('  Author reports and declared limitations:',', '.join(labelled) or 'none')
     if item['status'] not in ['draft','ready']: errors.append(f'{p.name}: invalid status')
     if strict:
         errors.extend(approval_errors(item,p))
@@ -51,8 +58,10 @@ for item in meta['papers']:
         if not item.get('corresponding_email') or '@' not in item['corresponding_email']:errors.append(f'{p.name}: missing correspondence email')
         for key in {a for person in item['authors'] for a in person['affiliations']}:
             if not meta['affiliations'][key].get('postal_address'):errors.append(f'{p.name}: missing postal address for {key}')
-        for field in ['editorial_policy_confirmed','declarations_reviewed']:
-            if item.get(field) is not True:errors.append(f'{p.name}: {field} not completed')
+        # The public drafts are either accepted by the journal or disclosed to it in the cover letter.
+        disclosed=(item.get('preprint_disclosure') or {}).get('method')=='cover_letter'
+        if item.get('editorial_policy_confirmed') is not True and not disclosed:errors.append(f'{p.name}: public drafts neither accepted by the journal nor disclosed in the cover letter')
+        if item.get('declarations_reviewed') is not True:errors.append(f'{p.name}: declarations_reviewed not completed')
         if r'\editorialtodo{' in body:errors.append(f'{p.name}: explicit editorial TODO in manuscript')
 # One immutable environment for CI and Codespaces.
 image=runtime_image()
